@@ -371,6 +371,7 @@
                 i++;
                 steps = parseInt(allPaths[j][1][i])*scale/2; //half the segment
                 findDeg();//draws first half of seg, second half of arc
+                degree = parseInt(allPaths[j][1][i-1]);
                 arcEndx = x;
                 arcEndy = y;
                 //don't need lightness bc drawArc function always has 50 for lightness
