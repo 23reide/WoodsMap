@@ -17,10 +17,11 @@
     var k = 1; //number of arrays to the child paths/arrays of this path (for SP)
     var a = 0;
     var b = 0;
+    var tickMark = 0;
 
     var allPaths = [
         mainPath = [
-            mpSP = [c.width/1.2, c.height/2],
+            mpSP = [c.width-50, c.height*0.75],
             mpDir = ["255 deg", " 10 steps", "303 deg", " 19 steps", "path", " 170 deg roger path", "312 deg", " 25 steps " , " 325°", "37 steps", " 284 deg", "19 steps", " 226 degree ", " 37 steps", "path", "211 deg grass path1", " 250 deg", "18 steps", "path", "145 deg grass path2", "258 deg", " 25 steps", "280 deg", " 37 steps", "path", "220 deg loop", "350 deg", " 39 steps", "23 deg", " 51 steps", "path", " 14 deg doctor path", "326 deg", " 89 steps", "path", " 105 deg", "path", " 239 deg", "330 deg", " 26 steps", "path", "257 deg 2nd loop end", " 350 deg", "7 steps", "path", "295 deg loop end", " 0 deg", "30 steps", " 42 deg", "47 steps", "path", " 298 deg bens cemp", "50 deg", "37 steps", "path", "285 deg bens camp", "20 deg", " 27 steps", "path", " 158 deg off-dr path", "endException", "16 deg", "29 steps"],
             "Main Path",
         ],
@@ -41,7 +42,7 @@
         ],
         loop = [
             mp3SP = [],
-            mp3Dir = ["202 deg", "19 step", "path", "244 deg path", "landmark",/*"landmark dump",*/ "200 deg", "17 steps", "path", "155 deg path", "197 deg", "25 steps", "landmark", /*"landmark hitching post",*/ "205 deg", "12 steps", "path", "245 deg swampish path", "190 deg", "30 steps", "path", " 95 deg", "208 deg", "10 steps", "path", " 16 deg path", "230 deg", " 10 steps","path", "163 deg myrtle", "landmark", /*"landmark foundation",*/ " 246 deg", "36 steps", " 272 deg", "18 steps", "path", " 178 deg myrtle path", "269 deg", " 8 steps", "landmark", /*"landmark woodpile",*/ "269 deg", " 14 steps", "deer","mudpit", " 268 deg", "30 steps", " 302 deg", "28 steps", "path", "190 deg", "path", "287 deg swamp path", " 8 deg", "55 steps", "landmark", /*" labsmark pine tree and pine cones",*/ "11 deg", " 24 steps", "path", " 356 deg", "263 deg", " 17 steps" ,"mudpit", "264 deg", " 36 steps", "271 deg", " 7 steps", "mudpit", "path", "44 deg", "path", "216 deg", " 237 deg", "19 steps", " 349 deg", "16 steps", " 286 deg", "56 steps", " 288 deg", "43 steps", " 257 deg", "24 steps", "path", "171 deg path around mudpit with rocks on stumps", "path", "354 deg", " 276 deg", "30 steps", "path", "62 deg alliance", " 220 deg", "70 steps", " 178 deg", "14 steps", "path", "216 deg", " 178 deg", "26 steps", "landmark", /*" landmark blackberries",*/ "186 deg", " 40 steps", "236 deg", " 26 steps", "300 deg", " 51 steps", "path", "46 deg", " 285 deg", "40 steps", " 323 deg", "29 steps", "path", "235 deg wynn road lookout", "10 deg", " 23 steps", "337 deg", " 35 steps", "27 deg", " 49 steps", "43 deg", " 42 steps","52 deg", "29 steps", "path", "143 deg", " 49 deg","104 steps", "77 deg", " 15 steps", "path", "157 deg", " 56 deg", "52 steps", " 88 deg", "39 steps", "path", "197 deg", " 87 deg", "22 steps", "path", "153 deg", "path", "324 deg", " 50 deg", "6 steps", "path", "6 deg", "89 deg", "26 steps", "landmark", /*"stream",*/ "92 deg", "31 steps", "path", "35 deg", "landmark", /*"woodpile",*/ "96 deg", "41 steps", "path", "207 deg", "82 deg", "32 steps", "path", "326 deg path to lower", "114 deg", "27 steps", "landmark", /*"stream",*/ "108 deg", "40 steps", "path", "129 deg 2nd loop exit", "79 deg", "31 steps", "path", "20 deg to Ben's field", "path", "173 deg", "end", "98 deg", "50 steps", "loopEnd"],
+            mp3Dir = ["200 deg", "19 steps", "path", "250 deg side path", "198 deg", "15 steps", "path", "150 deg locust path", "194 deg", "25 steps", "landmark", "205 deg", "12 steps", "path", "252 deg path", "190 deg", "25 steps", "landmark", "211 deg", "38 steps", "path", "357 deg", "245 deg", "7 steps", "path", "179 deg path", "255 deg", "30 steps", "landmark", "261 deg", "44 steps", "path", "184 deg Myrtle path", "274 deg", "11 steps", "landmark", "274 deg", "17 steps", "mudpit", "281 deg", "27 steps", "314 deg", "21 steps", "path", "185 deg path dead end", "path", "284 deg swamp path", "7 deg", "48 steps", "landmark", "19 deg", "11 steps", "341 deg", "13 steps", "path", "355 deg sawdust path", "274 deg", "14 steps", "mudpit", "280 deg", "39 steps", "path", "220 deg", "path", "45 deg", "285 deg", "5 steps", "mudpit", "302 deg", "53 steps", "306 deg", "38 steps", "268 deg", "28 steps", "path", "173 deg around mudpit path", "path", "345 deg little across triangle", "283 deg", "28 steps", "path", "52 deg alliance path", "227 deg", "58 steps", "191 deg", "19 steps", "path", "215 deg tree stand path", "175 deg", "25 steps", "landmark", "170 deg", "30 steps", "217 deg", "21 steps", "272 deg", "19 steps", "283 deg", "30 steps", "path", "27 deg", "294 deg", "49 steps", "332 deg", "16 steps", "path", "246 deg field overlook path", "353 deg", "26 steps", "334 deg", "22 steps", "7 deg", "23 steps", "26 deg", "65 steps", "38 deg", "120 steps", "70 deg", "15 steps", "path", "155 deg", "55 deg", "76 steps", "mudpit", "89 deg", "12 steps", "path", "188 deg path", "90 deg", "22 steps", "path", "320 deg pos just stream bed", "path", "10 deg", "path", "152 deg path", "76 deg", "28 steps ", "landmark", "99 deg", "9 steps", "path", "216 deg", "104 deg", "20 steps", "landmark", "path", "32 deg path", "102 deg", "45 steps", "path", "218 deg path", "77 deg", "28 steps", "path", "327 deg path to lower", "114 deg", "25 steps", "landmark", "114 deg", "35 steps ", "path", "120 deg 2nd exit", "75 deg", "30 steps", "path", "17 deg to Ben's field", "path", "179 deg middle path", "end", "92 deg", "58 steps", "loopEnd", "104 deg", "38 steps"],
             "Loop",
         ],             
         doctorPath = [
@@ -211,10 +212,6 @@
             /*SP*/ [],
             /*Dir*/ [],
         ],
-        mysteryChild = [
-            [],
-            [],
-        ],
         secondLoopPathEnd = [
             /*SP*/ [],
             /*Dir*/ [],
@@ -265,7 +262,7 @@
         }
         drawPath();
     }*/
-    var scale = 0.5; //this shld eventually be set to canvas size
+    var scale = 1; //this shld eventually be set to canvas size
     function drawPath(){ 
         ctx.clearRect(0, 0, c.width, c.height); 
         ctx.fillStyle = "hsla(60, 56%, 91%, 0.85)";
@@ -337,6 +334,7 @@
             m+=10;//this var is for moving key imgs so they aren't on top of each other
             if(allPaths[j][1][i] === "path"){
                 allPaths[k][0].push(xx, yy);
+                if(k===5){allPaths[k][0][0] -= 10*scale};//to fix white mark btwn start and parent path
                 k++;
                 steps = 5;
                 i++;
@@ -456,6 +454,28 @@
         ctx.quadraticCurveTo(arcMidx, arcMidy, arcEndx, arcEndy);
         ctx.strokeStyle = "hsl("+color+", 100%, 50%)";        
         ctx.stroke();
+        if(tickMark > 0){
+            arcStartx = x; //logs the coordinates for where the arc starts
+            arcStarty = y;
+            drawTick();
+        }
+    }
+
+    function drawTick(){
+        var t = 0.5;
+        xx = (1-t)**2 * arcStartx + 2 * (1-t) * t * arcMidx + t**2 * arcEndx
+        yy = (1-t)**2 * arcStarty + 2 * (1-t) * t * arcMidy + t**2 * arcEndy
+        startX = xx;
+        startY = yy;
+        allPaths[k][0].push(xx, yy);
+        k++;
+        steps = 5;
+        degree = parseInt(allPaths[j][1][i-2]);
+        lightness = 1;//can see; comment out to not see tick marks
+        findDeg(); //commenting this line out will erase tick marks showing path start and end points which should be done if printing; the tick marks are just to help programming-wise 
+        lightness = 0;//can't see
+        startX = arcStartx; //start at end of last half segment
+        startY = arcStarty; //doesn't need to be at the end bc drawArc doesn't effect it and this needs to be here so it works after first half seg is drawn
     }
 </script>
 </body>
