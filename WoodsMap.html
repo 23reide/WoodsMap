@@ -13,11 +13,12 @@
 <script>
     var c = document.getElementById("woodsCanvas");
     var ctx = c.getContext("2d");
-    var x, xx, y, yy, xSign, ySign, steps, degree, startX, startY, color, index, arcStartx, arcStarty, arcEndx, arcEndy, arcMidx, arcMidy, lighness;
+    var x, xx, y, yy, xSign, ySign, steps, degree, startX, startY, index, arcStartx, arcStarty, arcEndx, arcEndy, arcMidx, arcMidy, lighness;
     var k = 1; //number of arrays to the child paths/arrays of this path (for SP)
     var a = 0;
     var b = 0;
     var tickMark = 0;
+    var color = 0;
 
     var allPaths = [
         mainPath = [
@@ -29,6 +30,7 @@
         rogerPath = [
             [],
             [],
+            //off our property
         ],
         HCtoLoop = [
             /*SP*/ [],
@@ -53,10 +55,11 @@
         doctorEnd = [
             [],
             [],
+            //doctor path end
         ],
         acrossDoctor = [
             [],
-            ["223 deg", "5 steps", "path", "223 deg", "223 deg", "35 steps", "214 deg", " 90 steps", "172 deg", " 18 steps", "path", "221 deg path", " 163 deg", "18 steps", "path", "287 deg path", "155 deg", "58 steps", "133 deg", "39 steps", "190 deg", "20 steps", "125 deg",  "55 steps", "end", "137 deg", "11 steps", "Loop3", "? deg", "32 steps"],
+            ["223 deg", "5 steps", "path", "223 deg", "223 deg", "35 steps", "214 deg", " 90 steps", "172 deg", " 18 steps", "path", "349 deg path", " 163 deg", "18 steps", "path", "287 deg path", "155 deg", "58 steps", "133 deg", "39 steps", "190 deg", "20 steps", "125 deg",  "55 steps", "end", "137 deg", "11 steps", "Loop3", "? deg", "32 steps"],
             "Across Doctor Path",
         ],
         rutPath = [
@@ -72,6 +75,7 @@
         loopEnd = [
             [],
             [],
+            //loop end
         ],
         firstBenCamp = [
             [],
@@ -117,7 +121,7 @@
         Loop2 = [
             /*SP*/ [],
             /*Dir*/ [],
-            "HCtoClearing"
+            //HC to Loop (grass path 2) end technically
         ],
         Loop3 = [
             /*SP*/ [],
@@ -127,15 +131,17 @@
         Loop4 = [
             /*SP*/ [],
             /*Dir*/ [],
+            //loop parallel end
         ],
         myrtleLane = [
             /*SP*/ [],
-            /*Dir*/ ["194 deg", "18 steps", "path", "181 deg", "209 deg", "50 steps", "230 deg", "26 steps", "277 deg", "28 steps",  "end", "343 deg", "44 steps", "Loop6", "16 deg", "18 steps"],
+            /*Dir*/ ["194 deg", "18 steps", "path", "181 deg", "209 deg", "50 steps", "230 deg", "26 steps", "277 deg", "28 steps", "end", "343 deg", "44 steps", "Loop6", "16 deg", "18 steps"],
             "Myrtle Lane"
         ],
         Loop6 = [
             /*SP*/ [],
             /*Dir*/ [],
+            //myrtle land end
         ],
         swampDeadEnd = [
             /*SP*/ [],
@@ -155,7 +161,7 @@
         Loop10 = [
             /*SP*/ [],
             /*Dir*/ [],
-            "End of Swamp Road"
+            //swamp road end
         ],
         deerPath = [
             /*SP*/ [],
@@ -182,65 +188,79 @@
             /*Dir*/ ["63 deg", "28 steps", "path", "164 deg to loop", "58 deg", "21 steps", "27 deg", "50 steps", "mudpit", "50 deg", "20 steps", "84 deg", "41 steps", "mudpit", "72 deg", "12 steps", "path", "109 deg can triangle", "60 deg", "10 steps", "path", "144 deg fairy path?", "0 deg", "39 steps", "path", "299 deg", "350 deg", "21 steps",  "end", "6 deg", "45 steps", "Loop26", "20 steps"],
             "Alliance"
         ],
-        Loop16 = [
+        treeStandPath = [
             /*SP*/ [],
-            /*Dir*/ [],
+            /*Dir*/ ["250 deg", "27 steps", "271 deg", "16 steps", "landmark", "end", "269 deg", "26 steps", "Loop17", "243 deg", "15 steps"],
+            "Tree Stand Path"
         ],
         Loop17 = [
             /*SP*/ [],
             /*Dir*/ [],
+            //tree stand path end
         ],
-        Loop18 = [
+        fieldLookout = [
             /*SP*/ [],
-            /*Dir*/ [],
+            /*Dir*/ ["273 deg", "45 steps", "286 deg", "20 steps", "endException", "307 deg", "23 steps"],
+            "Wynn Lookout"
         ],
-        Loop19 = [
+        stuckPath = [
             /*SP*/ [],
-            /*Dir*/ [],
+            /*Dir*/ ["182 deg", "23 steps leeks", "landmark", "path", "123 deg", "endException", "175 deg ", "37 ? Steps"],//ends in brush and ruts but if it was clear it would end out on the alliance path by the big brush pile
+            "Stuck Path"
         ],
-        Loop20 = [
+        comeAround = [
             /*SP*/ [],
-            /*Dir*/ [],
+            /*Dir*/ ["213 deg", "20 steps", "173 deg", "12 steps", "109 deg", "25 steps", "47 deg", "15 steps", "path", "172 deg", "mudpit", "end", "340 deg", "8 steps", "path", "54 deg", "Loop23", "339 deg", "22 steps"],
+            "Come Around"
         ],
-        Loop21 = [
+        streambedPath = [
             /*SP*/ [],
-            /*Dir*/ [],
+            /*Dir*/ ["335 deg", "28 steps", "0 deg", "34 steps", "42 deg", "26 steps", "landmark", "path", "146 deg", "3 deg", "47 steps", "55 deg", "33 steps", "41 deg", "49 steps", "83 deg", "18 steps stream", "landmark", "81 deg", "17 steps", "path", "12 deg to ben field", "149 deg", "20 steps", "path", "30 deg", "173 deg", "80 steps", "177 deg", "27 steps", "path", "163 deg", "end", "200 deg", "19 steps", "path", "94 deg", "Loop25", "205 deg", "49 steps"],
+            "Streambed Path"
         ],
-        Loop22 = [
+        besideStreambed = [
             /*SP*/ [],
-            /*Dir*/ [],
+            /*Dir*/ ["17 deg", "1 step", "end", "17deg", "78 steps", "path", "18 deg", "streambedPath1", "243 deg", "29 steps"],
+            "Beside Streambed"
         ],
         Loop23 = [
             /*SP*/ [],
             /*Dir*/ [],
+            //come around end
         ],
-        Loop24 = [
+        culvertPath = [
             /*SP*/ [],
-            /*Dir*/ [],
+            /*Dir*/ ["justEnd", "comeAround2", "220 deg", "36 steps"],
+            "Culvert Path"
         ],
         Loop25 = [
             /*SP*/ [],
             /*Dir*/ [],
+            //streambed path end
         ],
         Loop26 = [
             /*SP*/ [],
             /*Dir*/ [],
+            //alliance end
         ],
-        Loop27 = [
+        toLower = [
             /*SP*/ [],
-            /*Dir*/ [],
+            /*Dir*/ ["349 deg", "26 steps", "path", "357 deg", "end", "341 deg", "42 steps", "path", "260 deg little cross over path", "streambedPath4", "337 deg", "5 steps"],
+            "To Lower"
         ],
         secondLoopPathEnd = [
             /*SP*/ [],
             /*Dir*/ [],
         ],
-        Loop29 = [
+        to2ndExit = [
             /*SP*/ [],
-            /*Dir*/ [],
+            /*Dir*/ ["justEnd", "secondLoopPath1", "186 deg", "22 steps"],
+            "To 2nd Exit"
         ],
-        Loop30 = [
+        toBenField = [
             /*SP*/ [],
-            /*Dir*/ [],
+            /*Dir*/ ["16 deg", "1 step", "endException", "16 deg", "38 steps"],
+            "To Ben's Field"
         ],
         doctorPath1 = [
             /*SP*/ [],
@@ -261,10 +281,12 @@
         secondLoopPath1 = [
             [],
             [],
+            //to second loop path end
         ],
-        secondLoopPath2 = [
+        parallelToMain = [
             [],
-            [],
+            ["211 deg", "23 steps", "195 deg", "56 steps", "203 deg", "40 steps", "path", "105 deg", "path", "252 deg fairy path", "end", "204 deg", "16 steps", "mudpit", "sawdustPath2", "196 deg", "49 steps"],
+            "Parallel to Main"
         ],
 //Tier 4
         miniParallel1 = [
@@ -323,11 +345,63 @@
             [],
             [],
         ],
-        alliance4 = [
+        /*alliance4 = [
             [],
             [],
         ],
         alliance5 = [
+            [],
+            [],
+        ],
+        stuckPath1 = [
+            [],
+            [],
+        ],
+        comeAround1 = [
+            [],
+            [],
+        ],*/
+        comeAround2 = [
+            [],
+            [],
+        ],
+        streambedPath1 = [
+            [],
+            [],
+        ],
+        streambedPath2 = [
+            [],
+            [],
+        ],
+        streambedPath3 = [
+            [],
+            [],
+        ],
+        streambedPath4 = [
+            [],
+            [],
+        ],
+        streambedPath5 = [
+            [],
+            [],
+        ],
+        besideStreambed1 = [
+            [],
+            [],
+        ],
+        toLower1 = [
+            [],
+            [],
+        ],
+        toLower2 = [
+            [],
+            [],
+        ],
+        parallelToMain1 = [
+            [],
+            [],
+        ],
+        parallelToMain2 = [
             [],
             [],
         ],
@@ -368,11 +442,11 @@
                 if(allPaths[j][1].length > 1 && i==0){ //first segment if it's a path array, not end
                     startX = allPaths[j][0][0]; //start for entire path
                     startY = allPaths[j][0][1]; //stored in SP
-                    color = j*40; //for path and path name
+                    color += 10; //for path and path name
                     lightness = 1;//can see
                     ctx.font = "10px Arial";
                     ctx.fillStyle = "hsl("+color+", 100%, 50%)"; //same as path color
-                    ctx.fillText(allPaths[j][2], startX, startY); //path name; comment out to erase path names
+                    //ctx.fillText(allPaths[j][2], startX, startY); //path name; comment out to erase path names
                     degree = parseInt(allPaths[j][1][i]);//for first seg half
                     if(isNaN(degree)){
                         notNumber()
