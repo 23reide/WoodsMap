@@ -59,7 +59,7 @@
         ],
         acrossDoctor = [
             [],
-            ["223 deg", "5 steps", "path", "223 deg", "223 deg", "35 steps", "214 deg", " 90 steps", "172 deg", " 18 steps", "path", "349 deg path", " 163 deg", "18 steps", "path", "287 deg path", "155 deg", "58 steps", "133 deg", "39 steps", "190 deg", "20 steps", "125 deg",  "55 steps", "end", "137 deg", "11 steps", "Loop3", "? deg", "32 steps"],
+            ["223 deg", "5 steps", "path", "223 deg", "223 deg", "35 steps", "214 deg", " 90 steps", "172 deg", " 18 steps", "path", "349 deg path", " 163 deg", "18 steps", "path", "287 deg path", "155 deg", "58 steps", "133 deg", "39 steps", "190 deg", "20 steps", "125 deg",  "55 steps", "end", "137 deg", "11 steps", "path", "58 deg", "Loop4", "186 deg", "40 steps"],
             "Across Doctor Path",
         ],
         rutPath = [
@@ -115,7 +115,7 @@
         ],
         miniParallel = [
             /*SP*/ [],
-            /*Dir*/ ["255 deg", "20 steps", "path", "283 deg path", "endException", "212 deg", "20 steps"],
+            /*Dir*/ ["236 deg", "13 steps", "path", "230 deg", "203 deg", "21 steps brush", "landmark", "end", "191 deg", "23 steps", "path", "185 deg", "Loop3", "112 deg", "9 steps"],
             "Mini Parallel"
         ],
         Loop2 = [
@@ -125,13 +125,13 @@
         ],
         Loop3 = [
             /*SP*/ [],
-            /*Dir*/ ["justEnd", "Loop4", "292 deg", "45 steps"],//technically shld be in Loop4 and ends on acrossDoctor4 but that path wasn't recorded for some reason and it would look wrong anyway
-            "Loop Parallel"
+            /*Dir*/ [],
+            //end mini parallel
         ],
         Loop4 = [
             /*SP*/ [],
             /*Dir*/ [],
-            //loop parallel end
+            //across doctor end
         ],
         myrtleLane = [
             /*SP*/ [],
@@ -165,7 +165,7 @@
         ],
         deerPath = [
             /*SP*/ [],
-            /*Dir*/ ["39 deg", "34 steps", "mudpit", "end", "39 deg", "1 step bc mudpit can't be after 'end'", "sawdustPath1", "39 deg", "35 steps"],
+            /*Dir*/ ["39 deg", "34 steps", "mudpit", "end", "39 deg", "1 step bc mudpit can't be after", "sawdustPath1", "39 deg", "35 steps"],
             "Deer Path"
         ],
         clearToLoop = [
@@ -178,10 +178,10 @@
             /*Dir*/ ["172 deg", "127 steps", "landmark", "145 deg", "53 steps", "70 deg", "51 steps", "end", "46 deg", "24 steps", "swampRoad1", "12 deg", "30 steps"],
             "Around Mudpit"
         ],
-        toAlliance = [
+        Loop14 = [
             /*SP*/ [],
-            /*Dir*/ ["310 deg", "19 steps", "endException"],//I don't think this is act doing anything and it can't end on the alliance path bc it isn't defined yet
-            "To Alliance"
+            /*Dir*/ [],
+            //to loop end
         ],
         alliance = [
             /*SP*/ [],
@@ -271,14 +271,22 @@
         acrossDoctor1 = [
             [],
             [],
+            //rut path end
         ],
         acrossDoctor2 = [
             [],
             [],
+            //sawdust end
         ],
-        acrossDoctor3 = [
+        triangle = [
+            [],
+            ["justEnd", "sawdustPath4", "311 deg", "19 steps"],
+            "Triangle"
+        ],
+        acrossDoctor4 = [
             [],
             [],
+            //tripod end
         ],
         secondLoopPath1 = [
             [],
@@ -295,6 +303,11 @@
             [],
             [],
         ],
+        tripod = [
+            [],
+            ["247 deg", "1 step", "end", "247 deg", "13 steps", "path", "12 deg", "acrossDoctor4", "228 deg", "7 steps"],
+            "Tripod"
+        ],
         myrtleLane1 = [
             [],
             [],
@@ -310,34 +323,41 @@
         sawdustPath1 = [
             [],
             [],
+            //deer path end
         ],
         sawdustPath2 = [
             [],
             [],
+            //parallel to main end
         ],
-        sawdustPath3 = [
+        goblinPath = [
             [],
-            [],
+            ["justEnd", "parallelToMain1", "310 deg", "47 steps"],
+            "Goblin Path"
         ],
         sawdustPath4 = [
             [],
             [],
+            //triangle end
         ],
-        alliance1 = [
+        alliance1 = [//has to be here so start and end are both defined
             [],
-            [],
+            ["justEnd", "Loop14", "310 deg", "19 steps"],
+            "To Loop"
         ],
-        alliance2 = [
+        fairyPath = [//FIX THIS
             [],
-            [],
+            ["108 deg", "14 steps", "path", "343 deg blue triangle", "129 deg", "46 steps", "end", "96 deg", "18 steps", "parallelToMain2", "73 deg", "21 steps"],
+            "Fairy Path"
         ],
-        alliance3 = [
+        blueTriangle = [
             [],
-            [],
+            ["justEnd", "fairyPath1", "158 deg", "10 steps"],
+            "Blue Triangle"
         ],
         alliance4 = [
             [],
-            [],
+            ["302 deg", "1 step", "end", "302 deg", "72 steps", "comeAround1", "342 deg", "12 steps"],
         ],
         stuckPath1 = [
             [],
@@ -390,6 +410,18 @@
         parallelToMain2 = [
             [],
             [],
+            //fairy path end
+        ],
+        //Tier 5
+        tripod1 = [
+            [],
+            [],
+            //mini parallel to swamp end
+        ],
+        fairyPath1 = [
+            [],
+            [],
+            //blue triangle end
         ],
     ]
 
@@ -428,7 +460,7 @@
                 if(allPaths[j][1].length > 1 && i==0){ //first segment if it's a path array, not end
                     startX = allPaths[j][0][0]; //start for entire path
                     startY = allPaths[j][0][1]; //stored in SP
-                    color += 10; //for path and path name
+                    color += 20; //for path and path name
                     lightness = 1;//can see
                     ctx.font = "10px Arial";
                     ctx.fillStyle = "hsl("+color+", 100%, 50%)"; //same as path color
