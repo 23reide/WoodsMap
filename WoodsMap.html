@@ -19,6 +19,7 @@
     var b = 0;
     var tickMark = 0;
     var color = 0;
+    var scale = 1; //this shld eventually be set to canvas size
 
     var allPaths = [
         mainPath = [
@@ -96,6 +97,7 @@
         HCtoLoop1 = [
             /*SP*/ [],
             /*Dir*/ [],
+            //grass path 2 end
         ],
         HCtoLoop2 = [
             /*SP*/ [],
@@ -165,7 +167,7 @@
         ],
         deerPath = [
             /*SP*/ [],
-            /*Dir*/ ["39 deg", "34 steps", "mudpit", "end", "39 deg", "1 step bc mudpit can't be after", "sawdustPath1", "39 deg", "35 steps"],
+            /*Dir*/ ["39 deg", "34 steps", "mudpit", "end", "39 deg", "1 step bc end can't be first", "sawdustPath1", "39 deg", "35 steps"],
             "Deer Path"
         ],
         clearToLoop = [
@@ -302,6 +304,7 @@
         miniParallel1 = [
             [],
             [],
+            //map
         ],
         tripod = [
             [],
@@ -311,14 +314,17 @@
         myrtleLane1 = [
             [],
             [],
+            //map
         ],
         swampRoad1 = [
             [],
             [],
+            //around mudpit end
         ],
         swampRoad2 = [
             [],
             [],
+            //clear to loop end
         ],
         sawdustPath1 = [
             [],
@@ -355,57 +361,70 @@
             ["justEnd", "fairyPath1", "158 deg", "10 steps"],
             "Blue Triangle"
         ],
-        alliance4 = [
+        brushSwamp = [
             [],
-            ["302 deg", "1 step", "end", "302 deg", "72 steps", "comeAround1", "342 deg", "12 steps"],
+            ["302 deg", "26 steps", "mudpit", "end", "297 deg", "42 steps", "mudpit", "comeAround1", "336 deg", "9 steps",],
+            "Brush Swamp Path"
         ],
         stuckPath1 = [
             [],
             [],
+            //map
         ],
         comeAround1 = [
             [],
             [],
+            //brush swamp end
         ],
         comeAround2 = [
             [],
             [],
+            //culvert path end
         ],
         streambedPath1 = [
             [],
             [],
+            //beside streambed end
         ],
         streambedPath2 = [
             [],
             [],
+            //map
         ],
         streambedPath3 = [
             [],
             [],
+            //map
         ],
         streambedPath4 = [
             [],
             [],
+            //to lower end
         ],
         streambedPath5 = [
             [],
             [],
+            //map
         ],
         besideStreambed1 = [
             [],
             [],
+            //map
         ],
         toLower1 = [
             [],
             [],
+            //map
         ],
         toLower2 = [
             [],
             [],
+            //map
         ],
         parallelToMain1 = [
             [],
             [],
+            //goblin path end
         ],
         parallelToMain2 = [
             [],
@@ -425,38 +444,12 @@
         ],
     ]
 
-/*    function createCheckboxes(){ //try clone.node or copy/paste to make enough checkboxes in html then use loop to name/id and push them to proper array
-        for(i=0; i<allPaths.length; i++){
-            if (allPaths[i].length > 2){ //if path name has been put in array
-                allPaths[i][3] = document.createElement("INPUT");
-                var checkbox = allPaths[i][3];
-                checkbox.style.position = "absolute";
-                checkbox.style.left = 0;
-                checkbox.style.top = c.height+10;
-                checkbox.type = "checkbox";
-                checkbox.checked = true; //it's default checked                
-                checkbox.id = allPaths[i][2]; //then use that
-                checkbox.label = allPaths[i][2];
-                allPaths[i].push(checkbox) //put this checkbox in the path's array
-                checkbox.addEventListener("change", drawPath);
-            }else{
-                i++;
-            }
-        }
-        drawPath();
-    }*/
-    var scale = 1; //this shld eventually be set to canvas size
     function drawPath(){ 
         ctx.clearRect(0, 0, c.width, c.height); 
         ctx.fillStyle = "hsla(60, 56%, 91%, 0.85)";
         ctx.fillRect(0,0,c.width,c.height);
-        for(j=0; j<allPaths.length; j++){
-            /*if(allPaths[j].length > 2){
-                if(allPaths[j][3].checked == false){
-                    j++;
-                }
-            }*/
-            for(i=0; i<allPaths[j][1].length; i++){
+        for(j=0; j<allPaths.length; j++){//goes through path array
+            for(i=0; i<allPaths[j][1].length; i++){//goes through dir array
                 if(allPaths[j][1].length > 1 && i==0){ //first segment if it's a path array, not end
                     startX = allPaths[j][0][0]; //start for entire path
                     startY = allPaths[j][0][1]; //stored in SP
@@ -503,7 +496,6 @@
                 findDeg();//draws first half of seg, second half of arc
                 arcEndx = x;
                 arcEndy = y;
-                //don't need lightness bc drawArc function always has 50 for lightness
                 drawArc();
             }
         }
