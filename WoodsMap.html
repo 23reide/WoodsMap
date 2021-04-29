@@ -17,7 +17,6 @@
     var k = 1; //number of arrays to the child paths/arrays of this path (for SP)
     var a = 0;
     var b = 0;
-    var tickMark = 0;
     var color = 0;
     var scale = 1; //this shld eventually be set to canvas size
 
@@ -86,7 +85,7 @@
         secondBenCamp = [
             [],
             ["298 deg", " 19 steps", "endException", "318 deg", " 27 steps"],
-            "Mr. Ben's Camp",
+            "Mr. Ben's Camp 2",
         ],
         offDoctor = [
             [],
@@ -444,60 +443,39 @@
         ],
     ]
 
-    function drawPath(){ 
-        ctx.clearRect(0, 0, c.width, c.height); 
-        ctx.fillStyle = "hsla(60, 56%, 91%, 0.85)";
-        ctx.fillRect(0,0,c.width,c.height);
+    function drawPath(){
+        setRectangle(); 
         for(j=0; j<allPaths.length; j++){//goes through path array
-            for(i=0; i<allPaths[j][1].length; i++){//goes through dir array
-                if(allPaths[j][1].length > 1 && i==0){ //first segment if it's a path array, not end
-                    startX = allPaths[j][0][0]; //start for entire path
-                    startY = allPaths[j][0][1]; //stored in SP
-                    color += 20; //for path and path name
-                    lightness = 1;//can see
-                    ctx.font = "10px Arial";
-                    ctx.fillStyle = "hsl("+color+", 100%, 50%)"; //same as path color
-                    ctx.fillText(allPaths[j][2], startX, startY); //path name; comment out to erase path names
-                    degree = parseInt(allPaths[j][1][i]);//for first seg half
-                    if(isNaN(degree)){
-                        notNumber()
-                    };
-                    if(a>b){
-                        b++;
-                        {break;}
-                    };
-                    i++;
-                    steps = parseInt(allPaths[j][1][i])*scale/2; //half the segment
-                    i++;//step to degree bc for loop i++ was used for first degree in this if
-                    findDeg(); //draw first half segment
-                    lightness = 0;//can't see
-                }
-                arcStartx = x; //logs the coordinates for where the arc starts
-                arcStarty = y;
-                startX = x; //start at end of last half segment
-                startY = y; //doesn't need to be at the end bc drawArc doesn't effect it and this needs to be here so it works after first half seg is drawn
-                degree = parseInt(allPaths[j][1][i-2]);//degrees don't change since this is the 2nd half, but need to be restated bc they get changed in findDeg()
-                //steps (other half of segment) are same
-                findDeg();//draws second half of seg, first half of arc
-                arcMidx = x;//logs vertex of where paths meet for reference point in arc
-                arcMidy = y;
-                startX = x; //start at end of last half segment
-                startY = y;
-                degree = parseInt(allPaths[j][1][i]);
-                if(isNaN(degree)){
-                    notNumber()
-                };
-                if(a>b){
-                    b++;
-                    {break;}
-                };
-                i++;
+            drawDir();
+        }
+    }
+
+    function drawDir(){
+        for(i=0; i<allPaths[j][1].length; i++){//goes through dir array
+            if(allPaths[j][1].length > 1 && i==0){ //first segment if it's a path array, not end
+                setNameAndColor();
+                checkDeg();
                 steps = parseInt(allPaths[j][1][i])*scale/2; //half the segment
-                findDeg();//draws first half of seg, second half of arc
-                arcEndx = x;
-                arcEndy = y;
-                drawArc();
+                i++;//step to degree bc for loop i++ was used for first degree in this if
+                findDeg(); //draw first half segment
+                lightness = 0;//can't see
             }
+            arcStartx = x; //logs the coordinates for where the arc starts
+            arcStarty = y;
+            startX = x; //start at end of last half segment
+            startY = y; //doesn't need to be at the end bc drawArc doesn't effect it and this needs to be here so it works after first half seg is drawn
+            degree = parseInt(allPaths[j][1][i-2]);//degrees don't change since this is the 2nd half, but need to be restated bc they get changed in findDeg()
+            findDeg();//draws second half of seg, first half of arc
+            arcMidx = x;//logs vertex of where paths meet for reference point in arc
+            arcMidy = y;
+            startX = x; //start at end of last half segment
+            startY = y;
+            checkDeg();
+            steps = parseInt(allPaths[j][1][i])*scale/2; //half the segment
+            findDeg();//draws first half of seg, second half of arc
+            arcEndx = x;
+            arcEndy = y;
+            drawArc();
         }
     }
 
@@ -506,28 +484,27 @@
         yy = y;
         var m = -10;
         while(isNaN(degree)){//if checks should be in a function w/ === "key" where key is an arguement of the function
-            m+=10;//this var is for moving key imgs so they aren't on top of each other
             if(allPaths[j][1][i] === "path"){
                 allPaths[k][0].push(xx, yy);
                 if(k===5){allPaths[k][0][0] -= 10*scale};//to fix white mark btwn start and parent path
                 k++;
-                steps = 5;
-                i++;
-                degree = parseInt(allPaths[j][1][i]);
-                lightness = 1;//can see; comment out to not see tick marks
-                findDeg(); //commenting this line out will erase tick marks showing path start and end points which should be done if printing; the tick marks are just to help programming-wise 
-                lightness = 0;//can't see
-                m-=15 //m moves a key img but the img only needs moved if another img, not path is there
-            }else if(allPaths[j][1][i] === "mudpit"){//these else if statements can prob be modified so there is only one (see comment by while)
+                drawTick();
+            }else if(allPaths[j][1][i] === "landmark"){
+                m+=10;
+                ctx.drawImage(landmark, xx-5, yy-5+m, 10, 10);
+            }else if(allPaths[j][1][i] === "mudpit"){
+                m+=10;
                 ctx.drawImage(mudpit, xx-5, yy-5+m, 10, 10);
             }else if(allPaths[j][1][i] === "deer"){
+                m+=10;
                 ctx.drawImage(deer, xx-5, yy-5+m, 10, 10);
             }else if(allPaths[j][1][i] === "treeDown"){
+                m+=10;
                 ctx.drawImage(treeDown, xx-5, yy-5+m, 10, 10);
             }else if(allPaths[j][1][i] === "deerTrail"){
+                m+=10;
                 ctx.drawImage(deerTrail, xx-5, yy-5+m, 10, 10);
-            }else if(allPaths[j][1][i] === "landmark"){
-                ctx.drawImage(landmark, xx-5, yy-5+m, 10, 10);
+
             }else if(allPaths[j][1][i] === "justEnd"){
                 i++;
                 opening = allPaths[j][1][i]; //path it ends onto
@@ -571,9 +548,7 @@
                 startY = y; //doesn't need to be at the end bc drawArc doesn't effect it and this needs to be here so it works after first half seg is drawn
                 i++;
                 degree = parseInt(allPaths[j][1][i]);
-                notNumber();//if degree, just goes into "else" statement at end
-                {break;}
-            }else{//if it is a path name, finish the "end" sequence and connect last seg to opening
+                notNumber();
                 opening = allPaths[j][1][i]; //path it ends onto
                 opening = eval(opening); //turn string name of path to object - variable name of array
                 x = parseInt(opening[0][0]); 
@@ -583,10 +558,40 @@
                 a++;
                 degree = 0;
                 {break;}
+            }else{
+                {break;}
             }
             i++;
             degree = parseInt(allPaths[j][1][i]);
         }
+    }
+
+    function setRectangle(){
+        ctx.clearRect(0, 0, c.width, c.height); 
+        ctx.fillStyle = "hsla(60, 56%, 91%, 0.85)";
+        ctx.fillRect(0,0,c.width,c.height);
+    };
+    
+    function setNameAndColor(){
+        startX = allPaths[j][0][0]; //start for entire path
+        startY = allPaths[j][0][1]; //stored in SP
+        color += 20; //for path and path name
+        lightness = 1;//can see
+        ctx.font = "10px Arial";
+        ctx.fillStyle = "hsl("+color+", 100%, 50%)"; //same as path color
+        ctx.fillText(allPaths[j][2], startX, startY); //path name; comment out to erase path names
+    };
+
+    function checkDeg(){
+        degree = parseInt(allPaths[j][1][i]);//for first seg half
+        if(isNaN(degree)){
+            notNumber()
+        };
+        if(a>b){
+            b++;
+            i+= 100;
+        };
+        i++;
     }
 
     function findDeg(){
@@ -629,28 +634,19 @@
         ctx.quadraticCurveTo(arcMidx, arcMidy, arcEndx, arcEndy);
         ctx.strokeStyle = "hsl("+color+", 100%, 50%)";        
         ctx.stroke();
-        if(tickMark > 0){
-            arcStartx = x; //logs the coordinates for where the arc starts
-            arcStarty = y;
-            drawTick();
-        }
     }
 
     function drawTick(){
-        var t = 0.5;
-        xx = (1-t)**2 * arcStartx + 2 * (1-t) * t * arcMidx + t**2 * arcEndx
-        yy = (1-t)**2 * arcStarty + 2 * (1-t) * t * arcMidy + t**2 * arcEndy
-        startX = xx;
-        startY = yy;
-        allPaths[k][0].push(xx, yy);
-        k++;
         steps = 5;
-        degree = parseInt(allPaths[j][1][i-2]);
+        i++;
+        degree = parseInt(allPaths[j][1][i]);
         lightness = 1;//can see; comment out to not see tick marks
         findDeg(); //commenting this line out will erase tick marks showing path start and end points which should be done if printing; the tick marks are just to help programming-wise 
         lightness = 0;//can't see
-        startX = arcStartx; //start at end of last half segment
-        startY = arcStarty; //doesn't need to be at the end bc drawArc doesn't effect it and this needs to be here so it works after first half seg is drawn
+        
+        /*var t = 0.5;
+        xx = (1-t)**2 * arcStartx + 2 * (1-t) * t * arcMidx + t**2 * arcEndx;
+        yy = (1-t)**2 * arcStarty + 2 * (1-t) * t * arcMidy + t**2 * arcEndy;*/
     }
 </script>
 </body>
