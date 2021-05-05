@@ -216,7 +216,7 @@
         ],
         streambedPath = [
             /*SP*/ [],
-            /*Dir*/ ["335 deg", "28 steps", "0 deg", "34 steps", "42 deg", "26 steps", "landmark", "path", "146 deg", "3 deg", "47 steps", "55 deg", "33 steps", "41 deg", "49 steps", "83 deg", "18 steps stream", "landmark", "81 deg", "17 steps", "path", "12 deg to ben field", "149 deg", "20 steps", "path", "30 deg", "173 deg", "80 steps", "177 deg", "27 steps", "path", "163 deg", "end", "200 deg", "19 steps", "path", "94 deg", "Loop25", "205 deg", "49 steps"],
+            /*Dir*/ ["335 deg", "28 steps", "0 deg", "34 steps", "42 deg", "26 steps", "landmark", "path", "146 deg", "3 deg", "47 steps", "55 deg", "33 steps", "41 deg", "19 steps", "path", "176 deg", "41 deg", "30 steps", "83 deg", "18 steps stream", "landmark", "81 deg", "7 steps", "path", "35 deg saw path", "81 deg", "11 steps", "path", "12 steps", "199 deg", "20 steps", "path", "30 deg", "173 deg", "80 steps", "177 deg", "27 steps", "path", "163 deg", "end", "20 deg", "19 steps", "path", "94 deg", "Loop25", "205 deg", "49 steps"],
             "Streambed Path"
         ],
         besideStreambed = [
@@ -246,7 +246,7 @@
         ],
         toLower = [
             /*SP*/ [],
-            /*Dir*/ ["349 deg", "26 steps", "path", "357 deg", "end", "341 deg", "42 steps", "path", "260 deg little cross over path", "streambedPath4", "337 deg", "5 steps"],
+            /*Dir*/ ["349 deg", "16 steps", "path", "5 deg", "349 deg", "10 steps", "path", "357 deg", "end", "341 deg", "42 steps", "path", "260 deg little cross over path", "streambedPath6", "337 deg", "5 steps"],
             "To Lower"
         ],
         secondLoopPathEnd = [
@@ -385,37 +385,52 @@
             [],
             //beside streambed end
         ],
-        streambedPath2 = [
+        downMiddle = [
             [],
-            [],
-            //map
+            ["180 deg", "50 steps", "end", "161 deg", "8 steps", "besideStreambed1", "220 deg", "10 steps"],
+            "Down Middle"
         ],
-        streambedPath3 = [
+        sawPath = [
             [],
-            [],
-            //map
+            ["35 deg", "10 steps", "path", "136 deg", "33 deg", "14 steps", "84 deg", "17 steps", "path", "177 deg", "19 deg", "34 steps", "endException", "43 deg", "21 steps"],
+            "Saw Path"
         ],
-        streambedPath4 = [
+        sawTriangle = [
+            [],
+            ["justEnd", "sawPath1", "74 deg", "11 steps"],
+            "Saw Triangle"
+        ],
+        getOut = [
+            [],
+            ["29 deg", "18 steps", "path", "145 deg", "end", "350 deg", "3 steps", "path", "63 deg", "sawPath2", "351 deg", "16 steps"],
+            "Get Out"
+        ],
+        streambedPath6 = [
             [],
             [],
             //to lower end
         ],
-        streambedPath5 = [
+        lowerTriangle = [
             [],
-            [],
-            //map
+            ["justEnd", "toLower3", "93 deg", "13 steps"],
+            "Lower Triangle"
         ],
         besideStreambed1 = [
             [],
             [],
             //map
         ],
-        toLower1 = [
+        brushy = [
             [],
-            [],
-            //map
+            ["3 deg", "45 steps", "344 deg", "10 steps", "358 deg", "6 steps", "299 deg", "12 steps", "path", "181 deg", "356 deg", "33 steps", "end", "346 deg", "48 steps", "getOut1", "325 deg", "42 steps"],
+            "Brushy"
         ],
-        toLower2 = [
+        notBrushy = [
+            [],
+            ["354 deg", "1 steps", "end", "354 deg", "45 steps", "brushy1", "2 deg", "17 steps"],
+            "Not Brushy"
+        ],
+        toLower3 = [
             [],
             [],
             //map
@@ -440,6 +455,31 @@
             [],
             [],
             //blue triangle end
+        ],
+        sawPath1 = [
+            [],
+            [],
+            //saw triangle end
+        ],
+        sawPath2 = [
+            [],
+            [],
+            //get out end
+        ],
+        getOut1 = [
+            [],
+            [],
+            //map
+        ],
+        optionOne = [
+            [],
+            ["60 deg", "20 steps", "89 deg", "9 steps", "23 deg", "13 steps", "endException", "92 deg", "34 steps"],
+            "Option One"
+        ],
+        brushy1 = [
+            [],
+            [],
+            //map
         ],
     ]
 
@@ -504,7 +544,6 @@
             }else if(allPaths[j][1][i] === "deerTrail"){
                 m+=10;
                 ctx.drawImage(deerTrail, xx-5, yy-5+m, 10, 10);
-
             }else if(allPaths[j][1][i] === "justEnd"){
                 i++;
                 opening = allPaths[j][1][i]; //path it ends onto
@@ -575,7 +614,7 @@
     function setNameAndColor(){
         startX = allPaths[j][0][0]; //start for entire path
         startY = allPaths[j][0][1]; //stored in SP
-        color += 20; //for path and path name
+        color += 22; //for path and path name
         lightness = 1;//can see
         ctx.font = "10px Arial";
         ctx.fillStyle = "hsl("+color+", 100%, 50%)"; //same as path color
