@@ -18,11 +18,11 @@
     var a = 0;
     var b = 0;
     var color = 0;
-    var scale = 1; //this shld eventually be set to canvas size
+    var scale = 0.8; //this shld eventually be set to canvas size
 
     var allPaths = [
         mainPath = [
-            mpSP = [c.width-50, c.height*0.7],
+            mpSP = [c.width-50, c.height*0.6],
             mpDir = ["255 deg", "10 steps", "303 deg", " 19 steps", "path", " 170 deg roger path", "312 deg", " 25 steps " , " 325°", "37 steps", " 284 deg", "19 steps", " 226 degree ", " 37 steps", "path", "211 deg grass path1", " 250 deg", "18 steps", "path", "145 deg grass path2", "258 deg", " 25 steps", "280 deg", " 37 steps", "path", "220 deg loop", "350 deg", " 39 steps", "23 deg", " 51 steps", "path", " 14 deg doctor path", "326 deg", " 89 steps", "path", " 105 deg", "path", " 239 deg", "330 deg", " 23 steps", "path", "184 deg rut path", "330 deg", "3 steps", "path", "257 deg 2nd loop end", " 350 deg", "7 steps", "path", "295 deg loop end", " 0 deg", "30 steps", " 42 deg", "47 steps", "path", " 298 deg bens cemp", "50 deg", "37 steps", "path", "285 deg bens camp", "20 deg", " 27 steps", "path", " 158 deg off-dr path", "endException", "16 deg", "29 steps"],
             "Main Path",
         ],
@@ -59,7 +59,7 @@
         ],
         acrossDoctor = [
             [],
-            ["223 deg", "5 steps", "path", "223 deg", "223 deg", "35 steps", "214 deg", " 90 steps", "172 deg", " 18 steps", "path", "349 deg path", " 163 deg", "18 steps", "path", "287 deg path", "155 deg", "58 steps", "133 deg", "39 steps", "190 deg", "20 steps", "125 deg",  "55 steps", "end", "137 deg", "11 steps", "path", "58 deg", "Loop4", "186 deg", "40 steps"],
+            ["223 deg", "5 steps", "path", "223 deg", "223 deg", "35 steps", "214 deg", " 90 steps", "192 deg", " 17 steps", "path", "349 deg path", " 163 deg", "16 steps", "path", "287 deg path", "155 deg", "42 steps", "133 deg", "28 steps", "190 deg", "24 steps", "125 deg",  "33 steps", "path", "48 deg", "125 deg",  "7 steps", "end", "137 deg", "8 steps", "path", "43 deg", "Loop4", "186 deg", "29 steps"],
             "Across Doctor Path",
         ],
         rutPath = [
@@ -101,18 +101,22 @@
         HCtoLoop2 = [
             /*SP*/ [],
             /*Dir*/ [],
+            //map
         ],
         HCtoLoop3 = [
             /*SP*/ [],
             /*Dir*/ [],
+            //map
         ],
         HCtoLoop4 = [
             /*SP*/ [],
             /*Dir*/ [],
+            //map
         ],
         HCtoLoop5 = [
             /*SP*/ [],
             /*Dir*/ [],
+            //map
         ],
         miniParallel = [
             /*SP*/ [],
@@ -216,7 +220,7 @@
         ],
         streambedPath = [
             /*SP*/ [],
-            /*Dir*/ ["335 deg", "28 steps", "0 deg", "34 steps", "42 deg", "26 steps", "landmark", "path", "146 deg", "3 deg", "47 steps", "55 deg", "33 steps", "41 deg", "19 steps", "path", "176 deg", "41 deg", "30 steps", "83 deg", "18 steps stream", "landmark", "81 deg", "7 steps", "path", "35 deg saw path", "81 deg", "11 steps", "path", "12 steps", "199 deg", "20 steps", "path", "30 deg", "173 deg", "80 steps", "177 deg", "27 steps", "path", "163 deg", "end", "20 deg", "19 steps", "path", "94 deg", "Loop25", "205 deg", "49 steps"],
+            /*Dir*/ ["335 deg", "28 steps", "0 deg", "34 steps", "42 deg", "26 steps", "landmark", "path", "146 deg", "3 deg", "47 steps", "55 deg", "33 steps", "41 deg", "19 steps", "path", "176 deg", "41 deg", "30 steps", "83 deg", "18 steps stream", "landmark", "81 deg", "7 steps", "path", "35 deg saw path", "81 deg", "11 steps", "path", "12 steps", "199 deg", "20 steps", "path", "30 deg", "path", "217 deg", "173 deg", "80 steps", "177 deg", "27 steps", "path", "163 deg", "end", "20 deg", "19 steps", "path", "94 deg", "Loop25", "205 deg", "49 steps"],
             "Streambed Path"
         ],
         besideStreambed = [
@@ -246,7 +250,7 @@
         ],
         toLower = [
             /*SP*/ [],
-            /*Dir*/ ["349 deg", "16 steps", "path", "5 deg", "349 deg", "10 steps", "path", "357 deg", "end", "341 deg", "42 steps", "path", "260 deg little cross over path", "streambedPath6", "337 deg", "5 steps"],
+            /*Dir*/ ["349 deg", "16 steps", "path", "5 deg", "349 deg", "10 steps", "path", "357 deg", "end", "341 deg", "42 steps", "path", "320 deg little cross over path", "streambedPath8", "337 deg", "5 steps"],
             "To Lower"
         ],
         secondLoopPathEnd = [
@@ -287,6 +291,11 @@
         acrossDoctor4 = [
             [],
             [],
+            //snowdrop end
+        ],
+        acrossDoctor5 = [
+            [],
+            [],
             //tripod end
         ],
         secondLoopPath1 = [
@@ -300,20 +309,20 @@
             "Parallel to Main"
         ],
 //Tier 4
-        miniParallel1 = [
+        snowdrop = [
             [],
-            [],
-            //map
+            ["252 deg", "6 steps", "path", "292 deg", "end", "220 deg", "21 steps", "acrossDoctor4", "216 deg", "35 steps"],
+            "Snowdrop"
         ],
         tripod = [
             [],
-            ["247 deg", "1 step", "end", "247 deg", "13 steps", "path", "12 deg", "acrossDoctor4", "228 deg", "7 steps"],
+            ["247 deg", "1 step", "end", "247 deg", "13 steps", "acrossDoctor5", "228 deg", "7 steps"],
             "Tripod"
         ],
-        myrtleLane1 = [
+        fieldPath = [
             [],
-            [],
-            //map
+            ["186 deg", "62 steps ", "150 deg", "21 steps", "path", "50 deg", "150 deg", "27 steps stonewall", "landmark", "157 deg", "47 steps", "endException", "173 deg", "21 steps"],
+            "Field Path"
         ],
         swampRoad1 = [
             [],
@@ -402,23 +411,28 @@
         ],
         getOut = [
             [],
-            ["29 deg", "18 steps", "path", "145 deg", "end", "350 deg", "3 steps", "path", "63 deg", "sawPath2", "351 deg", "16 steps"],
+            ["29 deg", "18 steps", "path", "165 deg", "end", "350 deg", "3 steps", "path", "63 deg", "sawPath2", "351 deg", "16 steps"],
             "Get Out"
         ],
-        streambedPath6 = [
+        ravinePath = [
             [],
-            [],
-            //to lower end
+            ["217 deg", "22 steps", "endException", "217 deg", "22 steps"],
+            "Ravine Path"
         ],
         lowerTriangle = [
             [],
             ["justEnd", "toLower3", "93 deg", "13 steps"],
             "Lower Triangle"
         ],
+        streambedPath8 = [
+            [],
+            [],
+            //to lower end
+        ],
         besideStreambed1 = [
             [],
             [],
-            //map
+            //down middle end
         ],
         brushy = [
             [],
@@ -433,7 +447,7 @@
         toLower3 = [
             [],
             [],
-            //map
+            //lower triangle end
         ],
         parallelToMain1 = [
             [],
@@ -446,10 +460,15 @@
             //fairy path end
         ],
         //Tier 5
-        tripod1 = [
+        stonePath = [
+            [],
+            ["279 deg", "16 steps", "endException", "263 deg", "32 steps"],
+            "Stone Path"
+        ],
+        fieldPath1 = [
             [],
             [],
-            //mini parallel to swamp end
+            //map
         ],
         fairyPath1 = [
             [],
@@ -469,7 +488,7 @@
         getOut1 = [
             [],
             [],
-            //map
+            //brushy end
         ],
         optionOne = [
             [],
@@ -479,7 +498,7 @@
         brushy1 = [
             [],
             [],
-            //map
+            //not brushy end
         ],
     ]
 
