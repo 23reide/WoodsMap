@@ -34,7 +34,7 @@
         ],
         HCtoLoop = [
             /*SP*/ [],
-            /*Dir*/["180 deg", "16 steps", "path", "303 deg", "187 deg", " 83 steps", "215 deg", " 40 steps", "path", " 139 deg", "path", " 204 deg", "332 deg", " 5 steps", "path", " 224 deg", "end", "338 deg", " 29 steps", "path", " 206 deg", "loop"],//this can't end on Loop2 bc loop2 isn't defined yet. Loop shld technically start at the other end and end on HCtoLoop
+            /*Dir*/["180 deg", "16 steps", "path", "303 deg", "187 deg", " 83 steps", "215 deg", " 40 steps", "path", " 139 deg", "path", " 204 deg", "332 deg", " 5 steps", "path", " 224 deg", "338 deg", " 29 steps", "path", " 206 deg", "end", "loop", "thing1", "thing2"],//this can't end on Loop2 bc loop2 isn't defined yet. Loop shld technically start at the other end and end on HCtoLoop
             "Grass Path",            
         ],
         grassPath2 = [
@@ -44,12 +44,12 @@
         ],
         loop = [
             mp3SP = [],
-            mp3Dir = ["200 deg", "19 steps", "path", "250 deg side path", "198 deg", "15 steps", "path", "150 deg locust path", "194 deg", "25 steps", "landmark", "205 deg", "12 steps", "path", "252 deg path", "190 deg", "25 steps", "landmark", "211 deg", "38 steps", "path", "357 deg", "245 deg", "7 steps", "path", "179 deg path", "255 deg", "30 steps", "landmark", "261 deg", "44 steps", "path", "184 deg Myrtle path", "274 deg", "11 steps", "landmark", "274 deg", "17 steps", "mudpit", "281 deg", "27 steps", "314 deg", "21 steps", "path", "185 deg path dead end", "path", "284 deg swamp path", "7 deg", "48 steps", "landmark", "19 deg", "11 steps", "341 deg", "13 steps", "path", "355 deg sawdust path", "274 deg", "14 steps", "mudpit", "280 deg", "39 steps", "path", "220 deg", "path", "45 deg", "285 deg", "5 steps", "mudpit", "302 deg", "5 steps", "path", "240 deg clear to swamp road", "302 deg", "58 steps", "306 deg", "38 steps", "268 deg", "28 steps", "path", "173 deg around mudpit path", "path", "345 deg little across triangle", "283 deg", "28 steps", "path", "52 deg alliance path", "227 deg", "58 steps", "191 deg", "19 steps", "path", "215 deg tree stand path", "175 deg", "25 steps", "landmark", "170 deg", "30 steps", "217 deg", "21 steps", "272 deg", "19 steps", "283 deg", "30 steps", "path", "27 deg", "294 deg", "49 steps", "332 deg", "16 steps", "path", "246 deg field overlook path", "353 deg", "26 steps", "334 deg", "22 steps", "7 deg", "23 steps", "26 deg", "65 steps", "38 deg", "120 steps", "70 deg", "15 steps", "path", "155 deg", "55 deg", "76 steps", "mudpit", "89 deg", "12 steps", "path", "188 deg path", "90 deg", "22 steps", "path", "320 deg pos just stream bed", "path", "10 deg", "path", "152 deg path", "76 deg", "28 steps ", "landmark", "99 deg", "9 steps", "path", "216 deg", "104 deg", "20 steps", "landmark", "path", "32 deg path", "102 deg", "45 steps", "path", "218 deg path", "77 deg", "28 steps", "path", "327 deg path to lower", "114 deg", "25 steps", "landmark", "114 deg", "35 steps ", "path", "120 deg 2nd exit", "75 deg", "30 steps", "path", "17 deg to Ben's field", "path", "179 deg middle path", "end", "92 deg", "58 steps", "loopEnd", "104 deg", "38 steps"],
+            mp3Dir = ["200 deg", "19 steps", "path", "250 deg side path", "198 deg", "15 steps", "path", "150 deg locust path", "194 deg", "25 steps", "landmark", "205 deg", "12 steps", "path", "252 deg path", "190 deg", "25 steps", "landmark", "211 deg", "38 steps", "path", "357 deg", "245 deg", "7 steps", "path", "179 deg path", "255 deg", "30 steps", "landmark", "261 deg", "44 steps", "path", "184 deg Myrtle path", "274 deg", "11 steps", "landmark", "274 deg", "17 steps", "mudpit", "281 deg", "27 steps", "314 deg", "21 steps", "path", "185 deg path dead end", "path", "284 deg swamp path", "7 deg", "48 steps", "landmark", "19 deg", "11 steps", "341 deg", "13 steps", "path", "355 deg sawdust path", "274 deg", "14 steps", "mudpit", "280 deg", "39 steps", "path", "220 deg", "path", "45 deg", "285 deg", "5 steps", "mudpit", "302 deg", "5 steps", "path", "240 deg clear to swamp road", "302 deg", "58 steps", "306 deg", "38 steps", "268 deg", "28 steps", "path", "173 deg around mudpit path", "path", "345 deg little across triangle", "283 deg", "28 steps", "path", "52 deg alliance path", "227 deg", "58 steps", "191 deg", "19 steps", "path", "215 deg tree stand path", "175 deg", "25 steps", "landmark", "170 deg", "30 steps", "217 deg", "21 steps", "272 deg", "19 steps", "283 deg", "30 steps", "path", "27 deg", "294 deg", "49 steps", "332 deg", "16 steps", "path", "246 deg field overlook path", "353 deg", "26 steps", "334 deg", "22 steps", "7 deg", "23 steps", "26 deg", "65 steps", "38 deg", "120 steps", "70 deg", "15 steps", "path", "155 deg", "55 deg", "76 steps", "mudpit", "89 deg", "12 steps", "path", "188 deg path", "90 deg", "22 steps", "path", "320 deg pos just stream bed", "path", "10 deg", "path", "152 deg path", "76 deg", "28 steps ", "landmark", "99 deg", "9 steps", "path", "216 deg", "104 deg", "20 steps", "landmark", "path", "32 deg path", "102 deg", "45 steps", "path", "218 deg path", "77 deg", "28 steps", "path", "327 deg path to lower", "114 deg", "25 steps", "landmark", "114 deg", "35 steps ", "path", "120 deg 2nd exit", "75 deg", "30 steps", "path", "17 deg to Ben's field", "path", "179 deg middle path", "92 deg", "58 steps", "end", "loopEnd", "104 deg", "38 steps"],
             "Loop",
         ],             
         doctorPath = [
             /*SP*/[],
-            /*Dir*/["11 deg", "28 steps", "end", "335 deg", " 28 steps", "path", "33 deg off dr path", "doctorEnd", "295 deg", "42 steps"],
+            /*Dir*/["11 deg", "28 steps", "335 deg", " 28 steps", "path", "33 deg off dr path", "end", "doctorEnd", "295 deg", "42 steps"],
             "Doctor Path",
         ],
         doctorEnd = [
@@ -59,7 +59,7 @@
         ],
         acrossDoctor = [
             [],
-            ["223 deg", "5 steps", "path", "223 deg", "223 deg", "35 steps", "214 deg", " 90 steps", "192 deg", " 17 steps", "path", "349 deg path", " 163 deg", "16 steps", "path", "287 deg path", "155 deg", "42 steps", "133 deg", "28 steps", "190 deg", "24 steps", "125 deg",  "33 steps", "path", "48 deg", "125 deg",  "7 steps", "end", "137 deg", "8 steps", "path", "43 deg", "Loop4", "186 deg", "29 steps"],
+            ["223 deg", "5 steps", "path", "223 deg", "223 deg", "35 steps", "214 deg", " 90 steps", "192 deg", " 17 steps", "path", "349 deg path", " 163 deg", "16 steps", "path", "287 deg path", "155 deg", "42 steps", "133 deg", "28 steps", "190 deg", "24 steps", "125 deg",  "33 steps", "path", "48 deg", "125 deg",  "7 steps", "137 deg", "8 steps", "path", "43 deg", "end", "Loop4", "186 deg", "29 steps"],
             "Across Doctor Path",
         ],
         rutPath = [
@@ -69,7 +69,7 @@
         ],
         secondLoopPath = [
             [],
-            ["256 deg", " 73 steps", "end", "297 deg", " 33 steps", "path", " 22 deg bens field path", "path", "202 deg path", "secondLoopPathEnd", " 301 deg", "34 steps"],
+            ["256 deg", " 73 steps", "297 deg", " 33 steps", "path", " 22 deg bens field path", "path", "202 deg path", "end", "secondLoopPathEnd", " 301 deg", "34 steps"],
             "Second Loop Exit",
         ],
         loopEnd = [
@@ -89,7 +89,7 @@
         ],
         offDoctor = [
             [],
-            ["152°" , " 30 steps" ,"160°"," 27 steps" ," 187 degrees" ,"60 steps", "end", "165 deg", "35 steps", "doctorPath1", "thing 1", "thing 2"],
+            ["152°" , " 30 steps" ,"160°"," 27 steps" ," 187 degrees" ,"60 steps", "165 deg", "35 steps", "end", "doctorPath1", "thing 1", "thing 2"],
             "Off-Doctor Path",
         ],
 //Tier 3 - grandchild paths
@@ -120,7 +120,7 @@
         ],
         miniParallel = [
             /*SP*/ [],
-            /*Dir*/ ["236 deg", "13 steps", "path", "230 deg", "203 deg", "21 steps brush", "landmark", "end", "191 deg", "23 steps", "path", "185 deg", "Loop3", "112 deg", "9 steps"],
+            /*Dir*/ ["236 deg", "13 steps", "path", "230 deg", "203 deg", "21 steps brush", "landmark", "191 deg", "23 steps", "path", "185 deg", "end", "Loop3", "112 deg", "9 steps"],
             "Mini Parallel"
         ],
         Loop2 = [
@@ -140,7 +140,7 @@
         ],
         myrtleLane = [
             /*SP*/ [],
-            /*Dir*/ ["194 deg", "18 steps", "path", "181 deg", "209 deg", "50 steps", "230 deg", "26 steps", "277 deg", "28 steps", "end", "343 deg", "44 steps", "Loop6", "16 deg", "18 steps"],
+            /*Dir*/ ["194 deg", "18 steps", "path", "181 deg", "209 deg", "50 steps", "230 deg", "26 steps", "277 deg", "28 steps", "343 deg", "44 steps", "end", "Loop6", "16 deg", "18 steps"],
             "Myrtle Lane"
         ],
         Loop6 = [
@@ -155,12 +155,12 @@
         ],
         swampRoad = [
             /*SP*/ [],
-            /*Dir*/ ["290 deg", "19 steps", "mudpit", "283 deg", "29 steps", "landmark", "292 deg", "20 steps", "mudpit", "292 deg", "23 steps", "path", "174 deg", "340 deg", "17 steps", "40 deg", "11 steps", "mudpit", "end", "50 deg", "29 steps", "path", "334 deg to loop", "Loop10", "70 deg", "18 steps"],
+            /*Dir*/ ["290 deg", "19 steps", "mudpit", "283 deg", "29 steps", "landmark", "292 deg", "20 steps", "mudpit", "292 deg", "23 steps", "path", "174 deg", "340 deg", "17 steps", "40 deg", "11 steps", "mudpit", "50 deg", "29 steps", "path", "334 deg to loop", "end", "Loop10", "70 deg", "18 steps"],
             "Swamp Road"
         ],
         sawdustPath = [
             /*SP*/ [],
-            /*Dir*/ ["349 deg", "35 steps", "344 deg", "23 steps", "path", "214 deg back to loop", "path", "12 deg fairy path", "65 deg", "63 steps", "end", "58 deg", "16 steps", "path", "282 deg swamp path", "path", "124 deg swamp path", "acrossDoctor2", "67 deg", "19 steps",],
+            /*Dir*/ ["349 deg", "35 steps", "344 deg", "23 steps", "path", "214 deg back to loop", "path", "12 deg fairy path", "65 deg", "63 steps", "58 deg", "16 steps", "path", "282 deg swamp path", "path", "124 deg swamp path", "end", "acrossDoctor2", "67 deg", "19 steps",],
             "Sawdust Path"
         ],
         Loop10 = [
@@ -170,7 +170,7 @@
         ],
         deerPath = [
             /*SP*/ [],
-            /*Dir*/ ["39 deg", "34 steps", "mudpit", "end", "39 deg", "1 step bc end can't be first", "sawdustPath1", "39 deg", "35 steps"],
+            /*Dir*/ ["39 deg", "34 steps", "mudpit", "39 deg", "1 step bc end can't be first", "end", "sawdustPath1", "39 deg", "35 steps"],
             "Deer Path"
         ],
         clearToLoop = [
@@ -180,7 +180,7 @@
         ],
         aroundMudpit = [
             /*SP*/ [],
-            /*Dir*/ ["172 deg", "127 steps", "landmark", "145 deg", "53 steps", "70 deg", "51 steps", "end", "46 deg", "24 steps", "swampRoad1", "12 deg", "30 steps"],
+            /*Dir*/ ["172 deg", "127 steps", "landmark", "145 deg", "53 steps", "70 deg", "51 steps", "46 deg", "24 steps", "end", "swampRoad1", "12 deg", "30 steps"],
             "Around Mudpit"
         ],
         Loop14 = [
@@ -190,12 +190,12 @@
         ],
         alliance = [
             /*SP*/ [],
-            /*Dir*/ ["63 deg", "28 steps", "path", "164 deg to loop", "58 deg", "21 steps", "27 deg", "50 steps", "mudpit", "50 deg", "20 steps", "84 deg", "41 steps", "mudpit", "72 deg", "12 steps", "path", "109 deg can triangle", "60 deg", "10 steps", "path", "144 deg fairy path?", "0 deg", "39 steps", "path", "299 deg", "350 deg", "21 steps",  "end", "6 deg", "45 steps", "Loop26", "20 steps"],
+            /*Dir*/ ["63 deg", "28 steps", "path", "164 deg to loop", "58 deg", "21 steps", "27 deg", "50 steps", "mudpit", "50 deg", "20 steps", "84 deg", "41 steps", "mudpit", "72 deg", "12 steps", "path", "109 deg can triangle", "60 deg", "10 steps", "path", "144 deg fairy path?", "0 deg", "39 steps", "path", "299 deg", "350 deg", "21 steps",  "6 deg", "45 steps", "end", "Loop26", "20 steps", "thing2"],
             "Alliance"
         ],
         treeStandPath = [
             /*SP*/ [],
-            /*Dir*/ ["250 deg", "27 steps", "271 deg", "16 steps", "landmark", "end", "269 deg", "26 steps", "Loop17", "243 deg", "15 steps"],
+            /*Dir*/ ["250 deg", "27 steps", "271 deg", "16 steps", "landmark", "269 deg", "26 steps", "end", "Loop17", "243 deg", "15 steps"],
             "Tree Stand Path"
         ],
         Loop17 = [
@@ -215,17 +215,17 @@
         ],
         comeAround = [
             /*SP*/ [],
-            /*Dir*/ ["213 deg", "20 steps", "173 deg", "12 steps", "109 deg", "25 steps", "47 deg", "15 steps", "path", "172 deg", "mudpit", "end", "340 deg", "8 steps", "path", "54 deg", "Loop23", "339 deg", "22 steps"],
+            /*Dir*/ ["213 deg", "20 steps", "173 deg", "12 steps", "109 deg", "25 steps", "47 deg", "15 steps", "path", "172 deg", "mudpit", "340 deg", "8 steps", "path", "54 deg", "end", "Loop23", "339 deg", "22 steps"],
             "Come Around"
         ],
         streambedPath = [
             /*SP*/ [],
-            /*Dir*/ ["335 deg", "28 steps", "0 deg", "34 steps", "42 deg", "26 steps", "landmark", "path", "146 deg", "3 deg", "47 steps", "55 deg", "33 steps", "41 deg", "19 steps", "path", "176 deg", "41 deg", "30 steps", "83 deg", "18 steps stream", "landmark", "81 deg", "7 steps", "path", "35 deg saw path", "81 deg", "11 steps", "path", "12 steps", "199 deg", "20 steps", "path", "30 deg", "path", "217 deg", "173 deg", "80 steps", "177 deg", "27 steps", "path", "163 deg", "end", "20 deg", "19 steps", "path", "94 deg", "Loop25", "205 deg", "49 steps"],
+            /*Dir*/ ["335 deg", "28 steps", "0 deg", "34 steps", "42 deg", "26 steps", "landmark", "path", "146 deg", "3 deg", "47 steps", "55 deg", "33 steps", "41 deg", "19 steps", "path", "176 deg", "41 deg", "30 steps", "83 deg", "18 steps stream", "landmark", "81 deg", "7 steps", "path", "35 deg saw path", "81 deg", "11 steps", "path", "12 steps", "199 deg", "20 steps", "path", "30 deg", "path", "217 deg", "173 deg", "80 steps", "177 deg", "27 steps", "path", "163 deg", "20 deg", "19 steps", "path", "94 deg", "end", "Loop25", "205 deg", "49 steps"],
             "Streambed Path"
         ],
         besideStreambed = [
             /*SP*/ [],
-            /*Dir*/ ["17 deg", "1 step", "end", "17deg", "78 steps", "path", "18 deg", "streambedPath1", "243 deg", "29 steps"],
+            /*Dir*/ ["17 deg", "1 step", "17deg", "78 steps", "path", "18 deg", "end", "streambedPath1", "243 deg", "29 steps"],
             "Beside Streambed"
         ],
         Loop23 = [
@@ -250,7 +250,7 @@
         ],
         toLower = [
             /*SP*/ [],
-            /*Dir*/ ["349 deg", "16 steps", "path", "5 deg", "349 deg", "10 steps", "path", "357 deg", "end", "341 deg", "42 steps", "path", "320 deg little cross over path", "streambedPath8", "337 deg", "5 steps"],
+            /*Dir*/ ["349 deg", "16 steps", "path", "5 deg", "349 deg", "10 steps", "path", "357 deg", "341 deg", "42 steps", "path", "320 deg little cross over path", "end", "streambedPath8", "337 deg", "5 steps"],
             "To Lower"
         ],
         secondLoopPathEnd = [
@@ -305,18 +305,18 @@
         ],
         parallelToMain = [
             [],
-            ["211 deg", "23 steps", "195 deg", "56 steps", "203 deg", "40 steps", "path", "105 deg", "path", "252 deg fairy path", "end", "204 deg", "16 steps", "mudpit", "sawdustPath2", "196 deg", "49 steps"],
+            ["211 deg", "23 steps", "195 deg", "56 steps", "203 deg", "40 steps", "path", "105 deg", "path", "252 deg fairy path", "204 deg", "16 steps", "mudpit", "end", "sawdustPath2", "196 deg", "49 steps"],
             "Parallel to Main"
         ],
 //Tier 4
         snowdrop = [
             [],
-            ["252 deg", "6 steps", "path", "292 deg", "end", "220 deg", "21 steps", "acrossDoctor4", "216 deg", "35 steps"],
+            ["252 deg", "6 steps", "path", "292 deg", "220 deg", "21 steps", "end", "acrossDoctor4", "216 deg", "35 steps"],
             "Snowdrop"
         ],
         tripod = [
             [],
-            ["247 deg", "1 step", "end", "247 deg", "13 steps", "acrossDoctor5", "228 deg", "7 steps"],
+            ["247 deg", "1 step", "247 deg", "13 steps", "end", "acrossDoctor5", "228 deg", "7 steps"],
             "Tripod"
         ],
         fieldPath = [
@@ -361,7 +361,7 @@
         ],
         fairyPath = [//FIX THIS
             [],
-            ["108 deg", "14 steps", "path", "343 deg blue triangle", "129 deg", "46 steps", "end", "96 deg", "18 steps", "parallelToMain2", "73 deg", "21 steps"],
+            ["108 deg", "14 steps", "path", "343 deg blue triangle", "129 deg", "46 steps", "96 deg", "18 steps", "end", "parallelToMain2", "73 deg", "21 steps"],
             "Fairy Path"
         ],
         blueTriangle = [
@@ -371,7 +371,7 @@
         ],
         brushSwamp = [
             [],
-            ["302 deg", "26 steps", "mudpit", "end", "297 deg", "42 steps", "mudpit", "comeAround1", "336 deg", "9 steps",],
+            ["302 deg", "26 steps", "mudpit", "297 deg", "42 steps", "mudpit", "end", "comeAround1", "336 deg", "9 steps",],
             "Brush Swamp Path"
         ],
         comeAround1 = [
@@ -391,7 +391,7 @@
         ],
         downMiddle = [
             [],
-            ["180 deg", "50 steps", "end", "161 deg", "8 steps", "besideStreambed1", "220 deg", "10 steps"],
+            ["180 deg", "50 steps", "161 deg", "8 steps", "end", "besideStreambed1", "220 deg", "10 steps"],
             "Down Middle"
         ],
         sawPath = [
@@ -406,7 +406,7 @@
         ],
         getOut = [
             [],
-            ["29 deg", "18 steps", "path", "165 deg", "end", "350 deg", "3 steps", "path", "63 deg", "sawPath2", "351 deg", "16 steps"],
+            ["29 deg", "18 steps", "path", "165 deg", "350 deg", "3 steps", "path", "63 deg", "end", "sawPath2", "351 deg", "16 steps"],
             "Get Out"
         ],
         ravinePath = [
@@ -431,12 +431,12 @@
         ],
         brushy = [
             [],
-            ["3 deg", "45 steps", "344 deg", "10 steps", "358 deg", "6 steps", "299 deg", "12 steps", "path", "181 deg", "356 deg", "33 steps", "end", "346 deg", "48 steps", "getOut1", "325 deg", "42 steps"],
+            ["3 deg", "45 steps", "344 deg", "10 steps", "358 deg", "6 steps", "299 deg", "12 steps", "path", "181 deg", "356 deg", "33 steps", "346 deg", "48 steps", "end", "getOut1", "325 deg", "42 steps"],
             "Brushy"
         ],
         notBrushy = [
             [],
-            ["354 deg", "1 steps", "end", "354 deg", "45 steps", "brushy1", "2 deg", "17 steps"],
+            ["354 deg", "1 steps", "354 deg", "45 steps", "end", "brushy1", "2 deg", "17 steps"],
             "Not Brushy"
         ],
         toLower3 = [
@@ -589,7 +589,7 @@
         lightness = 1;//can see
         ctx.font = "10px Arial";
         ctx.fillStyle = "hsl("+color+", 100%, 50%)"; //same as path color
-        ctx.fillText(allPaths[j][2], startX, startY); //path name; comment out to erase path names
+        //ctx.fillText(allPaths[j][2], startX, startY); //path name; comment out to erase path names
     };
 
     function checkDeg(){
@@ -663,8 +663,7 @@
             y = parseInt(opening[0][1]);
             lightness = 1;//can see
             drawSeg();
-            a++;
-        }else if(allPaths[j][1].length < i+4){
+        }else if(allPaths[j][1].length < i+3){
             degree = parseInt(allPaths[j][1][i]);
             i++;
             steps = parseInt(allPaths[j][1][i])*scale/2; //half the segment
@@ -679,31 +678,14 @@
             //degree and steps (other half of segment) are same
             lightness = 1; //can see
             findDeg();//draws second half of seg, first half of arc
-            a++;//this will be larger than b and so it will break out of the loop and not try to keep drawing things
-        }else{
-            //draw last arc and last half of last seg
-            degree = parseInt(allPaths[j][1][i]);
-            i++;
-            steps = parseInt(allPaths[j][1][i])*scale/2; //half the segment
-            findDeg();//draws first half of seg, second half of arc
-            arcEndx = x;
-            arcEndy = y;
-            //don't need lightness bc drawArc function always has 50 for lightness
-            drawArc();
-            startX = x; //start at end of last half segment
-            startY = y; //doesn't need to be at the end bc drawArc doesn't effect it and this needs to be here so it works after first half seg is drawn
-            i++;
-            degree = parseInt(allPaths[j][1][i]);
-            notNumber();
+        }else if(allPaths[j][1].length < i+4){
             opening = allPaths[j][1][i]; //path it ends onto
             opening = eval(opening); //turn string name of path to object - variable name of array
-            x = parseInt(opening[0][0]); 
-            y = parseInt(opening[0][1]);
-            lightness = 1;//can see
-            drawSeg();
-            a++;
-            degree = 0;
+            arcEndx = parseInt(opening[0][0]); 
+            arcEndy = parseInt(opening[0][1]);            
+            drawArc();        
         }
+        a++;//this will be larger than b and so it will break out of the loop and not try to keep drawing things
     }
 </script>
 </body>
