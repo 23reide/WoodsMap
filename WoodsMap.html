@@ -23,7 +23,7 @@
     var allPaths = [
         mainPath = [
             mpSP = [c.width-50, c.height*0.6],
-            mpDir = ["255 deg", "10 steps", "303 deg", " 19 steps", "path", " 170 deg roger path", "312 deg", " 25 steps " , " 325°", "37 steps", " 284 deg", "19 steps", " 226 degree ", " 37 steps", "path", "211 deg grass path1", " 250 deg", "18 steps", "path", "145 deg grass path2", "258 deg", " 25 steps", "280 deg", " 37 steps", "path", "220 deg loop", "350 deg", " 39 steps", "23 deg", " 51 steps", "path", " 14 deg doctor path", "326 deg", " 89 steps", "path", " 105 deg", "path", " 239 deg", "330 deg", " 23 steps", "path", "184 deg rut path", "330 deg", "3 steps", "path", "257 deg 2nd loop end", " 350 deg", "7 steps", "path", "295 deg loop end", " 0 deg", "30 steps", " 42 deg", "47 steps", "path", " 298 deg bens cemp", "50 deg", "37 steps", "path", "285 deg bens camp", "20 deg", " 27 steps", "path", " 158 deg off-dr path", "endException", "16 deg", "29 steps"],
+            mpDir = ["255 deg", "10 steps", "303 deg", " 19 steps", "path", " 170 deg roger path", "312 deg", " 25 steps " , " 325°", "37 steps", " 284 deg", "19 steps", " 226 degree ", " 37 steps", "path", "211 deg grass path1", " 250 deg", "18 steps", "path", "145 deg grass path2", "258 deg", " 25 steps", "280 deg", " 37 steps", "path", "220 deg loop", "350 deg", " 39 steps", "23 deg", " 51 steps", "path", " 14 deg doctor path", "326 deg", " 89 steps", "path", " 105 deg", "path", " 239 deg", "330 deg", " 23 steps", "path", "184 deg rut path", "330 deg", "3 steps", "path", "257 deg 2nd loop end", " 350 deg", "7 steps", "path", "295 deg loop end", " 0 deg", "30 steps", " 42 deg", "47 steps", "path", " 298 deg bens cemp", "50 deg", "37 steps", "path", "285 deg bens camp", "20 deg", " 27 steps", "path", " 158 deg off-dr path", "end", "16 deg", "29 steps"],
             "Main Path",
         ],
 //Tier 2 - child paths
@@ -39,7 +39,7 @@
         ],
         grassPath2 = [
             mp2SP = [],
-            mp2Dir = ["justEnd", "HCtoLoop1", "123 deg", " 10 steps"],
+            mp2Dir = ["end", "HCtoLoop1", "123 deg", " 10 steps"],
             "Grass Path 2",
         ],
         loop = [
@@ -64,7 +64,7 @@
         ],
         rutPath = [
             [],
-            ["justEnd", "acrossDoctor1", "186 deg", "30 steps"],
+            ["end", "acrossDoctor1", "186 deg", "30 steps"],
             "Rut Path"
         ],
         secondLoopPath = [
@@ -79,17 +79,17 @@
         ],
         firstBenCamp = [
             [],
-            ["313 deg", "17 steps", "320 deg", " 21 steps", "264 deg", " 12 steps", "endException", "332 deg", " 22 steps",],
+            ["313 deg", "17 steps", "320 deg", " 21 steps", "264 deg", " 12 steps", "end", "332 deg", " 22 steps",],
             "Mr. Ben's Camp",
         ],
         secondBenCamp = [
             [],
-            ["298 deg", " 19 steps", "endException", "318 deg", " 27 steps"],
+            ["298 deg", " 19 steps", "end", "318 deg", " 27 steps"],
             "Mr. Ben's Camp 2",
         ],
         offDoctor = [
             [],
-            ["152°" , " 30 steps" ,"160°"," 27 steps" ," 187 degrees" ,"60 steps", "end", "165 deg", "35 steps", "doctorPath1"],
+            ["152°" , " 30 steps" ,"160°"," 27 steps" ," 187 degrees" ,"60 steps", "end", "165 deg", "35 steps", "doctorPath1", "thing 1", "thing 2"],
             "Off-Doctor Path",
         ],
 //Tier 3 - grandchild paths
@@ -150,7 +150,7 @@
         ],
         swampDeadEnd = [
             /*SP*/ [],
-            /*Dir*/ ["205 deg", "16 steps", "endException", "224 deg", "15 steps"],
+            /*Dir*/ ["205 deg", "16 steps", "end", "224 deg", "15 steps"],
             "Swamp Dead End"
         ],
         swampRoad = [
@@ -175,7 +175,7 @@
         ],
         clearToLoop = [
             /*SP*/ [],
-            /*Dir*/ ["justEnd", "swampRoad2", "163 deg", "12 steps"],
+            /*Dir*/ ["end", "swampRoad2", "163 deg", "12 steps"],
             "Clear to Loop"
         ],
         aroundMudpit = [
@@ -205,12 +205,12 @@
         ],
         fieldLookout = [
             /*SP*/ [],
-            /*Dir*/ ["273 deg", "45 steps", "286 deg", "20 steps", "endException", "307 deg", "23 steps"],
+            /*Dir*/ ["273 deg", "45 steps", "286 deg", "20 steps", "end", "307 deg", "23 steps"],
             "Wynn Lookout"
         ],
         stuckPath = [
             /*SP*/ [],
-            /*Dir*/ ["182 deg", "23 steps leeks", "landmark", "endException", "175 deg ", "37 ? Steps"],//ends in brush and ruts but if it was clear it would end out on the alliance path by the big brush pile
+            /*Dir*/ ["182 deg", "23 steps leeks", "landmark", "end", "175 deg ", "37 ? Steps"],//ends in brush and ruts but if it was clear it would end out on the alliance path by the big brush pile
             "Stuck Path"
         ],
         comeAround = [
@@ -235,7 +235,7 @@
         ],
         culvertPath = [
             /*SP*/ [],
-            /*Dir*/ ["justEnd", "comeAround2", "220 deg", "36 steps"],
+            /*Dir*/ ["end", "comeAround2", "220 deg", "36 steps"],
             "Culvert Path"
         ],
         Loop25 = [
@@ -260,12 +260,12 @@
         ],
         to2ndExit = [
             /*SP*/ [],
-            /*Dir*/ ["justEnd", "secondLoopPath1", "186 deg", "22 steps"],
+            /*Dir*/ ["end", "secondLoopPath1", "186 deg", "22 steps"],
             "To 2nd Exit"
         ],
         toBenField = [
             /*SP*/ [],
-            /*Dir*/ ["16 deg", "1 step", "endException", "16 deg", "38 steps"],
+            /*Dir*/ ["16 deg", "1 step", "end", "16 deg", "38 steps"],
             "To Ben's Field"
         ],
         doctorPath1 = [
@@ -285,7 +285,7 @@
         ],
         triangle = [
             [],
-            ["justEnd", "sawdustPath4", "311 deg", "19 steps"],
+            ["end", "sawdustPath4", "311 deg", "19 steps"],
             "Triangle"
         ],
         acrossDoctor4 = [
@@ -321,7 +321,7 @@
         ],
         fieldPath = [
             [],
-            ["186 deg", "62 steps ", "150 deg", "21 steps", "path", "50 deg", "150 deg", "27 steps stonewall", "landmark", "157 deg", "47 steps", "endException", "173 deg", "21 steps"],
+            ["186 deg", "62 steps ", "150 deg", "21 steps", "150 deg", "27 steps stonewall", "landmark", "157 deg", "47 steps", "end", "173 deg", "21 steps"],
             "Field Path"
         ],
         swampRoad1 = [
@@ -346,7 +346,7 @@
         ],
         goblinPath = [
             [],
-            ["justEnd", "parallelToMain1", "310 deg", "47 steps"],
+            ["end", "parallelToMain1", "310 deg", "47 steps"],
             "Goblin Path"
         ],
         sawdustPath4 = [
@@ -356,7 +356,7 @@
         ],
         alliance1 = [//has to be here so start and end are both defined
             [],
-            ["justEnd", "Loop14", "310 deg", "19 steps"],
+            ["end", "Loop14", "310 deg", "19 steps"],
             "To Loop"
         ],
         fairyPath = [//FIX THIS
@@ -366,7 +366,7 @@
         ],
         blueTriangle = [
             [],
-            ["justEnd", "fairyPath1", "158 deg", "10 steps"],
+            ["end", "fairyPath1", "158 deg", "10 steps"],
             "Blue Triangle"
         ],
         brushSwamp = [
@@ -396,12 +396,12 @@
         ],
         sawPath = [
             [],
-            ["35 deg", "10 steps", "path", "136 deg", "33 deg", "14 steps", "84 deg", "17 steps", "path", "177 deg", "19 deg", "34 steps", "endException", "43 deg", "21 steps"],
+            ["35 deg", "10 steps", "path", "136 deg", "33 deg", "14 steps", "84 deg", "17 steps", "path", "177 deg", "19 deg", "34 steps", "end", "43 deg", "21 steps"],
             "Saw Path"
         ],
         sawTriangle = [
             [],
-            ["justEnd", "sawPath1", "74 deg", "11 steps"],
+            ["end", "sawPath1", "74 deg", "11 steps"],
             "Saw Triangle"
         ],
         getOut = [
@@ -411,12 +411,12 @@
         ],
         ravinePath = [
             [],
-            ["217 deg", "22 steps", "endException", "217 deg", "22 steps"],
+            ["217 deg", "22 steps", "end", "217 deg", "22 steps"],
             "Ravine Path"
         ],
         lowerTriangle = [
             [],
-            ["justEnd", "toLower3", "93 deg", "13 steps"],
+            ["end", "toLower3", "93 deg", "13 steps"],
             "Lower Triangle"
         ],
         streambedPath8 = [
@@ -457,13 +457,8 @@
         //Tier 5
         stonePath = [
             [],
-            ["279 deg", "16 steps", "endException", "263 deg", "32 steps"],
+            ["279 deg", "16 steps", "end", "263 deg", "32 steps"],
             "Stone Path"
-        ],
-        fieldPath1 = [
-            [],
-            [],
-            //map
         ],
         fairyPath1 = [
             [],
@@ -487,7 +482,7 @@
         ],
         optionOne = [
             [],
-            ["60 deg", "20 steps", "89 deg", "9 steps", "23 deg", "13 steps", "endException", "92 deg", "34 steps"],
+            ["60 deg", "20 steps", "89 deg", "9 steps", "23 deg", "13 steps", "end", "92 deg", "34 steps"],
             "Option One"
         ],
         brushy1 = [
@@ -499,20 +494,24 @@
 
     function drawPath(){
         setRectangle(); 
-        for(j=0; j<allPaths.length; j++){//goes through path array
+        for(j=0; j<allPaths.length; j++){
             drawDir();
         }
     }
 
     function drawDir(){
-        for(i=0; i<allPaths[j][1].length; i++){//goes through dir array
-            if(allPaths[j][1].length > 1 && i==0){ //first segment if it's a path array, not end
+        for(i=0; i<allPaths[j][1].length; i++){
+            if(allPaths[j][1].length > 1 && i==0){//first segment if it's a path array, not end
                 setNameAndColor();
                 checkDeg();
+                if(a>b){
+                    b++;
+                    {break;}
+                };
                 steps = parseInt(allPaths[j][1][i])*scale/2; //half the segment
                 i++;//step to degree bc for loop i++ was used for first degree in this if
                 findDeg(); //draw first half segment
-                lightness = 0;//can't see
+                lightness = 0;
             }
             arcStartx = x; //logs the coordinates for where the arc starts
             arcStarty = y;
@@ -525,6 +524,10 @@
             startX = x; //start at end of last half segment
             startY = y;
             checkDeg();
+            if(a>b){
+                b++;
+                {break;}
+            };
             steps = parseInt(allPaths[j][1][i])*scale/2; //half the segment
             findDeg();//draws first half of seg, second half of arc
             arcEndx = x;
@@ -541,6 +544,8 @@
             if(allPaths[j][1][i] === "path"){
                 allPaths[k][0].push(xx, yy);
                 if(k===5){allPaths[k][0][0] -= 10*scale};//to fix white mark btwn start and parent path
+                if(k===62){allPaths[k][0][0] += 8*scale};
+                if(k===63){allPaths[k][0][0] += 8*scale};
                 k++;
                 drawTick();
             }else if(allPaths[j][1][i] === "landmark"){
@@ -558,58 +563,10 @@
             }else if(allPaths[j][1][i] === "deerTrail"){
                 m+=10;
                 ctx.drawImage(deerTrail, xx-5, yy-5+m, 10, 10);
-            }else if(allPaths[j][1][i] === "justEnd"){
-                i++;
-                opening = allPaths[j][1][i]; //path it ends onto
-                opening = eval(opening); //turn string name of path to object - variable name of array
-                x = parseInt(opening[0][0]); 
-                y = parseInt(opening[0][1]);
-                lightness = 1;//can see
-                drawSeg();
-                a++;
-                {break;}
-            }else if(allPaths[j][1][i] === "endException"){
-                i++;
-                degree = parseInt(allPaths[j][1][i]);
-                i++;
-                steps = parseInt(allPaths[j][1][i])*scale/2; //half the segment
-                findDeg();//draws first half of seg, second half of arc
-                degree = parseInt(allPaths[j][1][i-1]);
-                arcEndx = x;
-                arcEndy = y;
-                //don't need lightness bc drawArc function always has 50 for lightness
-                drawArc();
-                startX = x; //start at end of last half segment
-                startY = y; //doesn't need to be at the end bc drawArc doesn't effect it and this needs to be here so it works after first half seg is drawn
-                //degree and steps (other half of segment) are same
-                lightness = 1; //can see
-                findDeg();//draws second half of seg, first half of arc
-                a++;//this will be larger than b and so it will break out of the loop and not try to keep drawing things
-                {break;}//there's not path opening for it to end onto, so just draw the last set of dir/deg
             }else if(allPaths[j][1][i] === "end"){
-                //draw last arc and last half of last seg
                 i++;
-                degree = parseInt(allPaths[j][1][i]);
-                i++;
-                steps = parseInt(allPaths[j][1][i])*scale/2; //half the segment
-                findDeg();//draws first half of seg, second half of arc
-                arcEndx = x;
-                arcEndy = y;
-                //don't need lightness bc drawArc function always has 50 for lightness
-                drawArc();
-                startX = x; //start at end of last half segment
-                startY = y; //doesn't need to be at the end bc drawArc doesn't effect it and this needs to be here so it works after first half seg is drawn
-                i++;
-                degree = parseInt(allPaths[j][1][i]);
-                notNumber();
-                opening = allPaths[j][1][i]; //path it ends onto
-                opening = eval(opening); //turn string name of path to object - variable name of array
-                x = parseInt(opening[0][0]); 
-                y = parseInt(opening[0][1]);
-                lightness = 1;//can see
-                drawSeg();
-                a++;
-                degree = 0;
+
+                endPath();
                 {break;}
             }else{
                 {break;}
@@ -639,10 +596,6 @@
         degree = parseInt(allPaths[j][1][i]);//for first seg half
         if(isNaN(degree)){
             notNumber()
-        };
-        if(a>b){
-            b++;
-            i+= 100;
         };
         i++;
     }
@@ -700,6 +653,57 @@
         /*var t = 0.5;
         xx = (1-t)**2 * arcStartx + 2 * (1-t) * t * arcMidx + t**2 * arcEndx;
         yy = (1-t)**2 * arcStarty + 2 * (1-t) * t * arcMidy + t**2 * arcEndy;*/
+    }
+
+    function endPath(){
+        if(allPaths[j][1].length < 5){
+            opening = allPaths[j][1][i]; //path it ends onto
+            opening = eval(opening); //turn string name of path to object - variable name of array
+            x = parseInt(opening[0][0]); 
+            y = parseInt(opening[0][1]);
+            lightness = 1;//can see
+            drawSeg();
+            a++;
+        }else if(allPaths[j][1].length < i+4){
+            degree = parseInt(allPaths[j][1][i]);
+            i++;
+            steps = parseInt(allPaths[j][1][i])*scale/2; //half the segment
+            findDeg();//draws first half of seg, second half of arc
+            degree = parseInt(allPaths[j][1][i-1]);
+            arcEndx = x;
+            arcEndy = y;
+            //don't need lightness bc drawArc function always has 50 for lightness
+            drawArc();
+            startX = x; //start at end of last half segment
+            startY = y; //doesn't need to be at the end bc drawArc doesn't effect it and this needs to be here so it works after first half seg is drawn
+            //degree and steps (other half of segment) are same
+            lightness = 1; //can see
+            findDeg();//draws second half of seg, first half of arc
+            a++;//this will be larger than b and so it will break out of the loop and not try to keep drawing things
+        }else{
+            //draw last arc and last half of last seg
+            degree = parseInt(allPaths[j][1][i]);
+            i++;
+            steps = parseInt(allPaths[j][1][i])*scale/2; //half the segment
+            findDeg();//draws first half of seg, second half of arc
+            arcEndx = x;
+            arcEndy = y;
+            //don't need lightness bc drawArc function always has 50 for lightness
+            drawArc();
+            startX = x; //start at end of last half segment
+            startY = y; //doesn't need to be at the end bc drawArc doesn't effect it and this needs to be here so it works after first half seg is drawn
+            i++;
+            degree = parseInt(allPaths[j][1][i]);
+            notNumber();
+            opening = allPaths[j][1][i]; //path it ends onto
+            opening = eval(opening); //turn string name of path to object - variable name of array
+            x = parseInt(opening[0][0]); 
+            y = parseInt(opening[0][1]);
+            lightness = 1;//can see
+            drawSeg();
+            a++;
+            degree = 0;
+        }
     }
 </script>
 </body>
