@@ -1,6 +1,7 @@
 <html>
 <style>
 </style>
+<div id=div style="display:none;background-color:white;font-family:Arial;font-size:10px;"></div>
 <body onload="drawPath()">
     <canvas width="1000" height="700" id="woodsCanvas" style="position:absolute; top:0; left:0; z-index:1;"></canvas>
     <img id="compass" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe7KGQm2Y3ZvJGXIAoEey6GOW7fl4zOGSsOQ&usqp=CAUhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe7KGQm2Y3ZvJGXIAoEey6GOW7fl4zOGSsOQ&usqp=CAU" style="position:absolute; top:0; left:150; z-index:0;" width="700" height="700">
@@ -502,7 +503,10 @@
     function drawDir(){
         for(i=0; i<allPaths[j][1].length; i++){
             if(allPaths[j][1].length > 1 && i==0){//first segment if it's a path array, not end
-                setNameAndColor();
+                startX = allPaths[j][0][0]; //start for entire path
+                startY = allPaths[j][0][1]; //stored in SP
+                color += 22; //for path and path name
+                lightness = 1;//can see    
                 checkDeg();
                 if(a>b){
                     b++;
@@ -512,6 +516,9 @@
                 i++;//step to degree bc for loop i++ was used for first degree in this if
                 findDeg(); //draw first half segment
                 lightness = 0;
+            }
+            if(i > 1 && i < 4){//first segment if it's a path array, not end
+                setName();
             }
             arcStartx = x; //logs the coordinates for where the arc starts
             arcStarty = y;
@@ -543,9 +550,10 @@
         while(isNaN(degree)){//if checks should be in a function w/ === "key" where key is an arguement of the function
             if(allPaths[j][1][i] === "path"){
                 allPaths[k][0].push(xx, yy);
-                if(k===5){allPaths[k][0][0] -= 10*scale};//to fix white mark btwn start and parent path
+                if(k===5){allPaths[k][0][0] -= 8*scale};//to fix white mark btwn start and parent path
                 if(k===62){allPaths[k][0][0] += 8*scale};
                 if(k===63){allPaths[k][0][0] += 8*scale};
+                if(k===80){allPaths[k][0][0] -= 9*scale};
                 k++;
                 drawTick();
             }else if(allPaths[j][1][i] === "landmark"){
@@ -582,14 +590,14 @@
         ctx.fillRect(0,0,c.width,c.height);
     };
     
-    function setNameAndColor(){
-        startX = allPaths[j][0][0]; //start for entire path
-        startY = allPaths[j][0][1]; //stored in SP
-        color += 22; //for path and path name
-        lightness = 1;//can see
-        ctx.font = "10px Arial";
-        ctx.fillStyle = "hsl("+color+", 100%, 50%)"; //same as path color
-        //ctx.fillText(allPaths[j][2], startX, startY); //path name; comment out to erase path names
+    function setName(){
+        var text = document.getElementById('div');
+        var div = text.cloneNode(true);
+        div.style.display = "relative";
+        div.style.fontColor = "hsl("+color+", 100%, 50%)";
+        div.innerHTML = allPaths[j][2];
+        div.style.left = "1010px";
+        div.style.transform = "rotate("+degree+")";
     };
 
     function checkDeg(){
@@ -683,7 +691,7 @@
             opening = eval(opening); //turn string name of path to object - variable name of array
             arcEndx = parseInt(opening[0][0]); 
             arcEndy = parseInt(opening[0][1]);            
-            drawArc();        
+            drawArc();
         }
         a++;//this will be larger than b and so it will break out of the loop and not try to keep drawing things
     }
