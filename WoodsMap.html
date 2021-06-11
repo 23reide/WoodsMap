@@ -35,7 +35,7 @@
         ],
         HCtoLoop = [
             /*SP*/ [],
-            /*Dir*/["180 deg", "16 steps", "path", "303 deg", "187 deg", " 83 steps", "215 deg", " 40 steps", "path", " 139 deg", "path", " 204 deg", "332 deg", " 5 steps", "path", " 224 deg", "338 deg", " 29 steps", "path", " 206 deg", "end", "loop", "thing1", "thing2"],//this can't end on Loop2 bc loop2 isn't defined yet. Loop shld technically start at the other end and end on HCtoLoop
+            /*Dir*/["180 deg", "16 steps", "path", "303 deg", "187 deg", " 83 steps", "215 deg", " 40 steps", "path", " 139 deg", "332 deg", " 5 steps", "338 deg", " 29 steps", "path", " 206 deg", "end", "loop", "thing1", "thing2"],//this can't end on Loop2 bc loop2 isn't defined yet. Loop shld technically start at the other end and end on HCtoLoop
             "Grass Path",            
         ],
         grassPath2 = [
@@ -99,25 +99,15 @@
             /*Dir*/ [],
             //grass path 2 end
         ],
-        HCtoLoop2 = [
+        locust = [
             /*SP*/ [],
-            /*Dir*/ [],
-            //map
-        ],
-        HCtoLoop3 = [
-            /*SP*/ [],
-            /*Dir*/ [],
-            //map
-        ],
-        HCtoLoop4 = [
-            /*SP*/ [],
-            /*Dir*/ [],
-            //map
+            /*Dir*/ ["120 deg", "57 steps", "path", "48 deg roger", "path", "113 deg", "260 deg", "27 steps", "path", "93 deg", "294 deg", "32 steps", "path", "234 deg", "273 deg", "46 steps", "path", "200 deg", "path", "181 deg", "248 deg", "26 steps", "end", "Loop5", "166 deg", "18 steps",],
+            "Locust"
         ],
         HCtoLoop5 = [
             /*SP*/ [],
             /*Dir*/ [],
-            //map
+            //where loop technically connects
         ],
         miniParallel = [
             /*SP*/ [],
@@ -139,15 +129,15 @@
             /*Dir*/ [],
             //across doctor end
         ],
-        myrtleLane = [
+        Loop5 = [
             /*SP*/ [],
-            /*Dir*/ ["194 deg", "18 steps", "path", "181 deg", "209 deg", "50 steps", "230 deg", "26 steps", "277 deg", "28 steps", "343 deg", "44 steps", "end", "Loop6", "16 deg", "18 steps"],
-            "Myrtle Lane"
+            /*Dir*/ [],
+            //locust end
         ],
         Loop6 = [
             /*SP*/ [],
             /*Dir*/ [],
-            //myrtle land end
+            //myrtle lane end
         ],
         swampDeadEnd = [
             /*SP*/ [],
@@ -310,6 +300,36 @@
             "Parallel to Main"
         ],
 //Tier 4
+        locust1 = [
+            [],
+            [],
+            //Roger's
+        ],
+        locust2 = [
+            [],
+            [],
+            //Swamp Bugs end
+        ],
+        locustTriangle = [
+            [],
+            ["94 deg", "30 steps", "path", "277", "end", "locust2", "311 deg", "40 steps"],
+            "Locust Triangle"
+        ],
+        prickles = [
+            [],
+            ["234 deg", "21 steps", "path", "160 deg", "end", "234 deg", "36 steps"],
+            "Prickles"
+        ],
+        fieldPath = [
+            [],
+            ["186 deg", "6 steps ", "186 deg", "56 steps ", "150 deg", "21 steps", "150 deg", "27 steps stonewall", "landmark", "157 deg", "47 steps", "end", "173 deg", "21 steps"],
+            "Field Path"
+        ],
+        myrtleLane = [//myrtle lane
+            /*SP*/ [],
+            /*Dir*/ ["209 deg", "50 steps", "230 deg", "26 steps", "277 deg", "28 steps", "343 deg", "44 steps", "end", "Loop6", "16 deg", "18 steps"],
+            "Myrtle Lane"
+        ],
         snowdrop = [
             [],
             ["252 deg", "6 steps", "path", "292 deg", "220 deg", "21 steps", "end", "acrossDoctor4", "216 deg", "35 steps"],
@@ -319,11 +339,6 @@
             [],
             ["247 deg", "1 step", "247 deg", "13 steps", "end", "acrossDoctor5", "228 deg", "7 steps"],
             "Tripod"
-        ],
-        fieldPath = [
-            [],
-            ["186 deg", "62 steps ", "150 deg", "21 steps", "150 deg", "27 steps stonewall", "landmark", "157 deg", "47 steps", "end", "173 deg", "21 steps"],
-            "Field Path"
         ],
         swampRoad1 = [
             [],
@@ -455,7 +470,17 @@
             [],
             //fairy path end
         ],
-        //Tier 5
+//Tier 5
+        swampBugs = [
+            [],
+            ["163 deg", "64 steps", "50 deg", "39 steps", "102 deg", "17 steps", "path", "151 deg", "31 deg", "26 steps", "83 deg", "17 steps", "end", "locustTriangle1", "311 deg", "9 steps"],
+            "Swamp Bugs"
+        ],
+        locustTriangle1 = [
+            [],
+            [],
+            //swamp bugs end
+        ],
         stonePath = [
             [],
             ["279 deg", "16 steps", "end", "263 deg", "32 steps"],
@@ -489,7 +514,13 @@
         brushy1 = [
             [],
             [],
-            //not brushy end
+            //not-brushy end
+        ],
+//Tier 6
+        swampBugs1 = [
+            [],
+            [],
+            //Roger's
         ],
     ]
 
@@ -590,7 +621,7 @@
         name = document.getElementById(allPaths[j][2]);
         name.style.color = "hsl("+color+", 100%, 50%)";
         if(allPaths[j][1].length < 10){
-            name.style.fontSize = allPaths[j][1].length + "px";
+            //name.style.fontSize = allPaths[j][1].length + "px";
         }
         name.innerHTML = allPaths[j][2];
         name.style.top = y;
