@@ -308,7 +308,7 @@
         locust2 = [
             [],
             [],
-            //Swamp Bugs end
+            //Locust Triangle  end
         ],
         locustTriangle = [
             [],
@@ -317,7 +317,7 @@
         ],
         prickles = [
             [],
-            ["234 deg", "21 steps", "path", "160 deg", "end", "234 deg", "36 steps"],
+            ["234 deg", "16 steps", "path", "160 deg", "end", "234 deg", "31 steps"],
             "Prickles"
         ],
         fieldPath = [
@@ -471,15 +471,15 @@
             //fairy path end
         ],
 //Tier 5
-        swampBugs = [
-            [],
-            ["163 deg", "64 steps", "50 deg", "39 steps", "102 deg", "17 steps", "path", "151 deg", "31 deg", "26 steps", "83 deg", "17 steps", "end", "locustTriangle1", "311 deg", "9 steps"],
-            "Swamp Bugs"
-        ],
         locustTriangle1 = [
             [],
             [],
             //swamp bugs end
+        ],
+        swampBugs = [
+            [],
+            ["163 deg", "64 steps", "50 deg", "39 steps", "102 deg", "17 steps", "path", "151 deg", "31 deg", "26 steps", "83 deg", "17 steps", "end", "locustTriangle1", "311 deg", "9 steps"],
+            "Swamp Bugs"
         ],
         stonePath = [
             [],
@@ -578,10 +578,12 @@
         while(isNaN(degree)){//if checks should be in a function w/ === "key" where key is an arguement of the function
             if(allPaths[j][1][i] === "path"){
                 allPaths[k][0].push(xx, yy);
-                if(k===5){allPaths[k][0][0] -= 8*scale};//to fix white mark btwn start and parent path
-                if(k===62){allPaths[k][0][0] += 8*scale};
-                if(k===63){allPaths[k][0][0] += 8*scale};
-                if(k===80){allPaths[k][0][0] -= 9*scale};
+                if(k===5){allPaths[k][0][0] -= 8*scale};//to fix white mark btwn start and parent path - doctorPath
+                if(k===62){allPaths[k][0][0] += 8*scale};//deerPath end
+                if(k===63){allPaths[k][0][0] += 8*scale};//parallel to main end
+                if(k===56){allPaths[k][0][0] -= 9*scale};//locust triangle end
+                if(k===83){allPaths[k][0][0] -= 10*scale};//down middle end
+                if(k===31){allPaths[k][0][1] += 5*scale};//alliance start
                 k++;
                 drawTick();
             }else if(allPaths[j][1][i] === "landmark"){
@@ -612,7 +614,6 @@
         }
     }
     
-//        name.style.width = allPaths[j][2].length*6 + "px"; works only without line 593
     function setName(){
         var text = document.getElementById('div');
         var name = text.cloneNode(true);
@@ -629,7 +630,7 @@
         name.style.transformOrigin = "0 0";
         div.style.transform = 'rotate('+degree+'deg)'; 
         name.style.position = "absolute";
-        document.body.appendChild(name);
+        document.body.appendChild(name);//hide names
     };
 
     function checkDeg(){
@@ -686,13 +687,9 @@
         steps = 5;
         i++;
         degree = parseInt(allPaths[j][1][i]);
-        lightness = 1;//can see; comment out to not see tick marks
-        findDeg(); //commenting this line out will erase tick marks showing path start and end points which should be done if printing; the tick marks are just to help programming-wise 
+        lightness = 1;
+        //findDeg();//hide ticks
         lightness = 0;//can't see
-        
-        /*var t = 0.5;
-        xx = (1-t)**2 * arcStartx + 2 * (1-t) * t * arcMidx + t**2 * arcEndx;
-        yy = (1-t)**2 * arcStarty + 2 * (1-t) * t * arcMidy + t**2 * arcEndy;*/
     }
 
     function endPath(){
