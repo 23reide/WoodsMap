@@ -14,7 +14,7 @@
 <script>
     var c = document.getElementById("woodsCanvas");
     var ctx = c.getContext("2d");
-    var x, xx, y, yy, xSign, ySign, steps, degree, startX, startY, index, arcStartx, arcStarty, arcEndx, arcEndy, arcMidx, arcMidy, lightness;
+    var x, xx, y, yy, xSign, ySign, steps, degree, startX, startY, index, arcStartx, arcStarty, arcEndx, arcEndy, arcMidx, arcMidy, lightness, labelled;
     var k = 1; //number of arrays to the child paths/arrays of this path (for SP)
     var a = 0;
     var b = 0;
@@ -546,7 +546,9 @@
                 i++;//step to degree bc for loop i++ was used for first degree in this if
                 findDeg(); //draw first half segment
                 lightness = 0;
-                setName(2);
+                labelled = 0;
+                var rot = parseInt(allPaths[j][1][i-2]);
+                setName(rot);
             }
             arcStartx = x; //logs the coordinates for where the arc starts
             arcStarty = y;
@@ -554,6 +556,10 @@
             startY = y; //doesn't need to be at the end bc drawArc doesn't effect it and this needs to be here so it works after first half seg is drawn
             degree = parseInt(allPaths[j][1][i-2]);//degrees don't change since this is the 2nd half, but need to be restated bc they get changed in findDeg()
             findDeg();//draws second half of seg, first half of arc
+            if (labelled == false){
+                rot = rot-180;
+                setName(rot);
+            }
             arcMidx = x;//logs vertex of where paths meet for reference point in arc
             arcMidy = y;
             startX = x; //start at end of last half segment
@@ -615,28 +621,26 @@
     }
 
     function setName(rot){
-        var text = document.getElementById('div');
-        var name = text.cloneNode(true);
-        c.insertBefore(name, null);
-        name.id = allPaths[j][2];
-        name = document.getElementById(allPaths[j][2]);
-        name.style.color = "hsl("+color+", 100%, 0%)";
-        if(allPaths[j][1].length < 10){
-            //name.style.fontSize = allPaths[j][1].length + "px";
+        if (rot < 180){
+            var text = document.getElementById('div');
+            var name = text.cloneNode(true);
+            c.insertBefore(name, null);
+            name.id = allPaths[j][2];
+            name = document.getElementById(allPaths[j][2]);
+            name.style.color = "hsl("+color+", 100%, 0%)";
+            if(allPaths[j][1].length < 10){
+                //name.style.fontSize = allPaths[j][1].length + "px";
+            }
+            name.innerHTML = allPaths[j][2];
+            name.style.position = "absolute";//comment out to put all the names to the left
+            name.style.top = startY;
+            name.style.left = startX; 
+            rot -= 90;
+            name.style.transformOrigin = "0 0";
+            name.style.transform = 'rotate('+rot+'deg)'; 
+            document.body.appendChild(name);//hide names
+            labelled = 1;
         }
-        name.innerHTML = allPaths[j][2];
-        name.style.top = startY;
-        name.style.left = startX; 
-        name.style.position = "absolute";//comment out to put all the names to the left
-        var rot = parseInt(allPaths[j][1][i-rot]);
-        rot -= 90;
-        name.style.transformOrigin = "0 0";
-        name.style.transform = 'rotate('+rot+'deg)'; 
-        document.body.appendChild(name);//hide names
-        if(rot>180){
-            //name.style.transformOrigin = "50 50";
-            //name.style.transform = "rotate(180deg)";
-        };
     };
 
     function checkDeg(){
@@ -709,7 +713,8 @@
             i++;
             degree = parseInt(allPaths[j][1][i])
             findDeg();
-            setName(0);
+            rot = parseInt(allPaths[j][1][i]);
+            setName(rot);
         }else if(allPaths[j][1].length < i+3){
             degree = parseInt(allPaths[j][1][i]);
             i++;
