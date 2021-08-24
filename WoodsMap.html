@@ -296,7 +296,7 @@
         ],
         parallelToMain = [
             [],
-            ["211 deg", "23 steps", "195 deg", "56 steps", "203 deg", "40 steps", "path", "105 deg", "path", "252 deg fairy path", "204 deg", "16 steps", "mudpit", "end", "sawdustPath2", "196 deg", "49 steps"],
+            ["211 deg", "23 steps", "195 deg", "56 steps", "203 deg", "40 steps", "path", "105 deg goblin", "path", "252 deg fairy path", "204 deg", "16 steps", "mudpit", "end", "sawdustPath2", "196 deg", "49 steps"],
             "Parallel to Main"
         ],
 //Tier 4
@@ -533,6 +533,7 @@
     function drawDir(){
         for(i=0; i<allPaths[j][1].length; i++){
             if(allPaths[j][1].length > 1 && i==0){//first segment if it's a path array, not end
+                labelled = 0;
                 startX = allPaths[j][0][0]; //start for entire path
                 startY = allPaths[j][0][1]; //stored in SP
                 color += 22; //for path and path name
@@ -546,7 +547,6 @@
                 i++;//step to degree bc for loop i++ was used for first degree in this if
                 findDeg(); //draw first half segment
                 lightness = 0;
-                labelled = 0;
                 var rot = parseInt(allPaths[j][1][i-2]);
                 setName(rot);
             }
@@ -585,8 +585,8 @@
             if(allPaths[j][1][i] === "path"){
                 allPaths[k][0].push(xx, yy);
                 if(k===5){allPaths[k][0][0] -= 8*scale};//to fix white mark btwn start and parent path - doctorPath
-                if(k===62){allPaths[k][0][0] += 8*scale};//deerPath end
-                if(k===63){allPaths[k][0][0] += 8*scale};//parallel to main end
+                if(k===64){allPaths[k][0][0] += 6*scale};//deerPath end
+                if(k===66){allPaths[k][0][0] += 7*scale};//parallel to main end
                 if(k===56){allPaths[k][0][0] -= 9*scale};//LTri end
                 if(k===83){allPaths[k][0][0] -= 10*scale};//down middle end
                 if(k===31){allPaths[k][0][1] += 5*scale};//alliance start
@@ -627,7 +627,7 @@
             c.insertBefore(name, null);
             name.id = allPaths[j][2];
             name = document.getElementById(allPaths[j][2]);
-            name.style.color = "hsl("+color+", 100%, 0%)";
+            name.style.color = "hsl(0, 100%, 0%)";
             if(allPaths[j][1].length < 10){
                 //name.style.fontSize = allPaths[j][1].length + "px";
             }
@@ -698,7 +698,7 @@
         i++;
         degree = parseInt(allPaths[j][1][i]);
         lightness = 1;
-        //findDeg();//hide ticks
+        findDeg();//hide ticks
         lightness = 0;//can't see
     }
 
@@ -714,7 +714,16 @@
             degree = parseInt(allPaths[j][1][i])
             findDeg();
             rot = parseInt(allPaths[j][1][i]);
-            setName(rot);
+            if (labelled == false){
+                if (rot > 180){
+                    opening = allPaths[j][1][1]; //path it ends onto
+                    opening = eval(opening); //turn string name of path to object - variable name of array
+                    startX = parseInt(opening[0][0]); 
+                    startY = parseInt(opening[0][1]);
+                    rot = rot-180;
+                }
+                setName(rot);
+            }
         }else if(allPaths[j][1].length < i+3){
             degree = parseInt(allPaths[j][1][i]);
             i++;
@@ -734,7 +743,11 @@
             opening = allPaths[j][1][i]; //path it ends onto
             opening = eval(opening); //turn string name of path to object - variable name of array
             arcEndx = parseInt(opening[0][0]); 
-            arcEndy = parseInt(opening[0][1]);            
+            arcEndy = parseInt(opening[0][1]);
+            if (labelled == false){
+                rot = rot-180;
+                setName(rot);
+            }            
             drawArc();
         }
         a++;//this will be larger than b and so it will break out of the loop and not try to keep drawing things
